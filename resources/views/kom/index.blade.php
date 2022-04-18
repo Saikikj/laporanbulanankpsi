@@ -206,92 +206,9 @@
                                 </div>
                             </div>
                         </div>
+
                         {{-- CENTRIXS --}}
-                        <div class="modal fade" id="centrixs" tabindex="-1" role="dialog"
-                            aria-labelledby="centrixslabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header bg-dark">
-                                        <h5 class="modal-title text-white" id="centrixslabel">CENTRIXS</h5>
-                                        <button type="button" class="close text-white" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <figure class="highcharts-figure">
-                                            <div id="container"></div>
-                                            <table id="datatable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Markas</th>
-                                                        <th>Jan</th>
-                                                        <th>Feb</th>
-                                                        <th>Mac</th>
-                                                        <th>Apr</th>
-                                                        <th>Mei</th>
-                                                        <th>Jun</th>
-                                                        <th>Jul</th>
-                                                        <th>Ogos</th>
-                                                        <th>Sept</th>
-                                                        <th>Okt</th>
-                                                        <th>Nov</th>
-                                                        <th>Dis</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th>Markas Pemerintahan Armada Barat</th>
-                                                        <td>4</td>
-                                                        <td>5</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Markas Pemerintahan Armada Timur</th>
-                                                        <td>3</td>
-                                                        <td>3</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Markas Pemerintahan Kapal Selam</th>
-                                                        <td>3</td>
-                                                        <td>2</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </figure>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="row text-center">
                             <div class="col-md-4 offset-md-4">
                                 <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
@@ -301,155 +218,41 @@
                             </div>
                         </div>
                         <div class="row text-center">
-                            <div class="col-md-3">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        RMPNET
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        TRC5200
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        P4 NC2 TERMINAL
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        C4ITACKX PANGKALAN
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row text-center">
                             <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        C4ITACKX KAPAL
+                                <a href="centrixs"><button class="btn btn-outline-primary my-2 w-100">
+                                        CENTRIXS
                                     </button>
                                 </a>
                             </div>
                             <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        NCO
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        EMEL RASMI TLDM
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        SISTEM ICT TLDM
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        TERMINAL X-BAND
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        SIMKAD FBB
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        DEMS
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        RADIO KAPAL
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        RADIO PANGKALAN
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        KESELURUHAN JENIS RADIO
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        PENGOPERASIAN GIRN
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        ATT
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        GIRN UNIT
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
+                                <a href="fbb"><button class="btn btn-outline-primary my-2 w-100">
                                         TERMINAL FBB
                                     </button>
                                 </a>
                             </div>
                             <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        PENGOPERASIAN TELEFON
+                                <a href="xband"><button class="btn btn-outline-primary my-2 w-100">
+                                        X-Band
                                     </button>
                                 </a>
                             </div>
                         </div>
                         <div class="row text-center">
                             <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        IBU SAWAT TELEFON
+                                <a href="peralatankom"><button class="btn btn-outline-primary my-2 w-100">
+                                        STATUS PERALATAN KOMUNIKASI
                                     </button>
                                 </a>
                             </div>
                             <div class="col">
                                 <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        KAT2100 SK700
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-outline-primary my-2 w-100" data-toggle="modal"
-                                    data-target="#centrixs">
-                                    CENTRIXS
-                                </button>
-                            </div>
-                            <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        LATIHAN
+                                        RADIO/SATCOM
                                     </button>
                                 </a>
                             </div>
                             <div class="col">
                                 <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        KOMUNIKASI SATELIT
+                                        GIRN
                                     </button>
                                 </a>
                             </div>

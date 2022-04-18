@@ -41,11 +41,11 @@
             background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
         }
 
-        .modal-content {
+        /* .modal-content {
             border-radius: 1.5rem;
-        }
+        } */
 
-        .modal-header {
+        /* .modal-header {
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
         }
@@ -53,11 +53,13 @@
         .modal-body {
             border-bottom-left-radius: 1rem;
             border-bottom-right-radius: 1rem;
-        }
+        } */
 
         .card {
-            background-color: lightgray;
+            background-color: rgb(211, 211, 211);
         }
+
+        
 
     </style>
 </head>
@@ -66,7 +68,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="/icon/tldm.svg" width="45px" height="40px">
                     <span class="align-middle">SISTEM LAPORAN BULANAN KPSI</span>
                 </a>

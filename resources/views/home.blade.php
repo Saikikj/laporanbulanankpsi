@@ -29,6 +29,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <a href="p4/index"><button class="btn btn-outline-white border-0">
+                                    <img src="icon/p4.png" width="200px" height="200px">
                                     <h5>PERALATAN P4</h5>
                                 </button>
                                 </a>
