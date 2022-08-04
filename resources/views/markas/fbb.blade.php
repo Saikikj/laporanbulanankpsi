@@ -219,7 +219,7 @@ table.table td a {
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="/kom/centrixs"><button type="button" class="btn btn-default">back</button>
+                        <a href="/kom/fbb"><button type="button" class="btn btn-default">back</button>
                         </a>
                     </div>
                 </div>

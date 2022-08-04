@@ -34,6 +34,13 @@
                                 </button>
                                 </a>
                             </div>
+                            <div class="col-lg-12">
+                                <a href="ppe/index"><button class="btn btn-outline-white border-0">
+                                    <img src="icon/ppe2.png" width="270px" height="200px">
+                                    <h5>PERALATAN PE</h5>
+                                </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

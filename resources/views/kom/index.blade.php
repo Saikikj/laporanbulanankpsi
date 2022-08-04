@@ -226,7 +226,7 @@
                             </div>
                             <div class="col">
                                 <a href="fbb"><button class="btn btn-outline-primary my-2 w-100">
-                                        TERMINAL FBB
+                                        FBB
                                     </button>
                                 </a>
                             </div>
@@ -238,30 +238,97 @@
                             </div>
                         </div>
                         <div class="row text-center">
-                            <div class="col">
+                            <!-- <div class="col">
                                 <a href="peralatankom"><button class="btn btn-outline-primary my-2 w-100">
                                         STATUS PERALATAN KOMUNIKASI
                                     </button>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
-                                        RADIO/SATCOM
+                                <a href="radio"><button class="btn btn-outline-primary my-2 w-100">
+                                        RADIO
                                     </button>
                                 </a>
                             </div>
                             <div class="col">
-                                <a href=""><button class="btn btn-outline-primary my-2 w-100">
+                                <a href="girn"><button class="btn btn-outline-primary my-2 w-100">
                                         GIRN
                                     </button>
                                 </a>
                             </div>
+                    
+                            <div class="col">
+                                <a href="rmpnet"><button class="btn btn-outline-primary my-2 w-100">
+                                        RMPNET
+                                    </button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <div class="row text-center">
+
+                            <div class="col">
+                                <a href="trc5200"><button class="btn btn-outline-primary my-2 w-100">
+                                        TRC 5200
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="c4itacx"><button class="btn btn-outline-primary my-2 w-100">
+                                        C4ITACX
+                                    </button>
+                                </a>
+                            </div>
+                        
+                            <div class="col">
+                                <a href="nco"><button class="btn btn-outline-primary my-2 w-100">
+                                        NCO
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+
+                            <div class="col">
+                                <a href="emel"><button class="btn btn-outline-primary my-2 w-100">
+                                        EMEL RASMI
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="sistemict"><button class="btn btn-outline-primary my-2 w-100">
+                                        SISTEM ICT
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="dems"><button class="btn btn-outline-primary my-2 w-100">
+                                        DEMS
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+
+                            <div class="col">
+                                <a href="satcom"><button class="btn btn-outline-primary my-2 w-100">
+                                        SATCOM
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="telefon"><button class="btn btn-outline-primary my-2 w-100">
+                                        TELEFON
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="kat"><button class="btn btn-outline-primary my-2 w-100">
+                                        KAT 2100 SK700
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    
     <script>
         Highcharts.chart('container', {
             data: {

@@ -81,9 +81,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto row">
-                        {{-- <li class="col">
-                            <a href="#">TEST</a>
+                         <li class="col">
+                            <a href="/panduan">Panduan Pengisian</a>
                         </li>
+                        {{--
                         <li class="col">
                             <a href="#">TEST</a>
                         </li>

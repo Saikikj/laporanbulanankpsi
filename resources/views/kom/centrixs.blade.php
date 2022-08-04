@@ -150,7 +150,7 @@ table.table td .add {
                         <td>3</td>
                         <td>1</td>
                         <td>2</td>
-                        <td><a href="/"><button type="button" class="btn btn-default">lihat</button></a>
+                        <td><a href="/markas/centrixs/centrixsbarat"><button type="button" class="btn btn-default">lihat</button></a>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -166,10 +166,11 @@ table.table td .add {
                         <td>3</td>
                         <td>1</td>
                         <td>2</td>
-                        <td><a href="/"><button type="button" class="btn btn-default">lihat</button></a>
+                        <td><a href="/markas/centrixs/centrixsmpks"><button type="button" class="btn btn-default">lihat</button></a>
                     </tr>
                 </tbody>
             </table>
+            <a href="/markas/centrixs/addnew"><button type="button" class="btn btn-default" style="float:right;">Tambah Peralatan</button> 
             <a href="/kom/index"><button type="button" class="btn btn-default">back</button>
                 {{-- <a href="#" class="previous round">&#8249;</a> --}}
 

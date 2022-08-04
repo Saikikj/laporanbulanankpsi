@@ -109,7 +109,7 @@ table.table td .add {
 
 </style>
 
-{{-- <script>
+ <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
         var actions = $("table td:last-child").html();
@@ -120,6 +120,9 @@ table.table td .add {
             var row = '<tr>' +
                 '<td><input type="text" class="form-control" name="penggunaan" id="penggunaan"></td>' + //auto no when add
                 '<td><input type="text" class="form-control" name="mula" id="mula"></td>' +
+                '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
+                '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
+                '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td>' + actions + '</td>' +
@@ -163,7 +166,7 @@ table.table td .add {
             $(".add-new").removeAttr("disabled");
         });
     });
-</script> --}}
+</script>
        <div class="container">
         <div class="row justify-content-center">
             <div class="col">
@@ -178,52 +181,50 @@ table.table td .add {
 
                         <div class="table-title">
                             <div class="row">
-                                <div class="col-sm-8"><h2>Fleet Broadband <b>(FBB)</b></h2></div>
-                                
+                                <div class="col-sm-8"><h2>Fleet Broadband <b>(FBB TERMINAL)</b></h2></div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                                </div>
                             </div>
                         </div>
 
                         <table class="table table-bordered">
                 <thead style="text-align: center">
                     <tr>
-                        <th colspan="6">Status Peralatan</th>
+                        <th colspan="8">Status Peralatan</th>
                     </tr>
                     <tr>
                         <th rowspan="2">Siri</th>
-                        <th rowspan="2">Markas</th>
-                        <th rowspan="2">Jumlah Terminal</th>
-                        <th rowspan="2">Pakej Langganan</th>
-                        <th rowspan="2">Baki Kuota</th>
+                        <th rowspan="2">Markas/Unit</th>
+                        <th rowspan="2">Penempatan</th>
+                        <th rowspan="2">Jumlah Pegangan <br> Terminal</th>
+                        <th colspan="2">Status Pengoperasian</th>
+                        <th rowspan="2">Catatan</th>
                         <th rowspan="2">Tindakan</th>
+                    </tr>
+                    <tr><th rowspan="2">Baik</th>
+                    <th rowspan="2">Rosak</th>
                     </tr>
                 </thead>
                 <tbody style="text-align: center">
                     <tr>
                         <td>1</td>
-                        <td style="text-align: left">Markas Pemerintahan Armada Barat</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td><a href="/"><button type="button" class="btn btn-default">lihat</button></a>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td style="text-align: left">Markas Pemerintahan Armada Timur</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td><a href="/markas/fbb"><button type="button" class="btn btn-default">lihat</button></a>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td style="text-align: left">Markas Wilayah Laut 1</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td><a href="/"><button type="button" class="btn btn-default">lihat</button></a>
+                        <td style="text-align: left"></td>
+                        <td>7</td>
+                        <td></td>
+                        <td>7</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <a href="/markas/fbb/simkad"><button type="button" class="btn btn-default" style="float:right;">SIM KAD</button> 
             <a href="/kom/index"><button type="button" class="btn btn-default">back</button>
                 {{-- <a href="#" class="previous round">&#8249;</a> --}}
 
