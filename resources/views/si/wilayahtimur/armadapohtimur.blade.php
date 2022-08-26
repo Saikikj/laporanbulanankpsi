@@ -47,7 +47,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -64,7 +64,7 @@ table.table td .add {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -74,7 +74,7 @@ table.table td .add {
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
-/* 
+/*
 
 .table-title h2 {
     margin: 6px 0 0;
@@ -94,7 +94,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 
  */
 
@@ -180,7 +180,7 @@ table.table td a {
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
                 '<td><input type="text" class="form-control" name="bil" id="bil"></td>' + //will fill from db count when add new RECORD PERALATAN
-                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' + 
+                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' +
                 '<td><input type="text" class="form-control" name="nosiri" id="nosiri"></td>' +
                 '<td><input type="text" class="form-control" name="issi" id="issi"></td>' +
                 '<td><input type="text" class="form-control" name="tarikhterima" id="tarikhterima"></td>' +
@@ -191,7 +191,7 @@ table.table td a {
                 '<td><input type="text" class="form-control" name="lokasisemasa" id="lokasisemasa"></td>' +
                 '<td>' + actions + '</td>' +
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -211,16 +211,16 @@ table.table td a {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -229,7 +229,7 @@ table.table td a {
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
         });
-        
+
     });
 </script>
        <div class="container-fluid">
@@ -252,24 +252,274 @@ table.table td a {
                                     <!-- <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> -->
                                 </div>
                             </div>
-                        </div>      
+                        </div>
                         <table class="table table-bordered">
-                            <!-- <thead style="text-align: center" >
-                                
-                                <div class="dropdown">
-                                    <button onclick="myFunction()" class="dropbtn">UNIT</button>
-                                        <div id="myDropdown" class="dropdown-content">
-                                        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                                            <a href="">KA BM5</a>
-                                            <a href="">KA TUN AZIZAN</a>
-                                            <a href="">KD SRI GAYA</a>
-                                            <a href="">PL TSR</a>
+                            <thead style="text-align: center">
 
-                                        </div>
-                                </div>
-                            </thead> -->
+                                <!-- Table for data update (KOMPUTER MEJA) -->
+                                <tr>
+                                    <th colspan="11">Komputer Meja</th>
+                                </tr>
+                            <tbody style="text-align: center">
+                                <tr>
+                                    <th rowspan="2">Unit</th>
+                                    <th rowspan="2">Penempatan</th>
+                                    <th rowspan="2">Jenama</th>
+                                    <th colspan="2">No. Siri</th>
+                                    <th rowspan="2">Tahun</th>
+                                    <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
+                                    <th rowspan="2">Status (Baik/Rosak)</th>
+                                    <th rowspan="2">Cadangan (Lupus/Guna)</th>
+                                    <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
+                                </tr>
+                                <tr>
+                                    <th>CPU</th>
+                                    <th>Monitor</th>
+                                </tr>
+                                <tr>
+                                    <th>(a)</th>
+                                    <th>(b)</th>
+                                    <th>(c)</th>
+                                    <th>(d)</th>
+                                    <th>(e)</th>
+                                    <th>(f)</th>
+                                    <th>(g)</th>
+                                    <th>(h)</th>
+                                    <th>(i)</th>
+                                    <th>(j)</th>
+                                    <th>(k)</th>
+                                </tr>
 
+                                @foreach ($datas->where('jenis', 'Komputer Meja') as $data)
+                                    <tr>
+                                        {{-- {{ $data->(nama column)}} --}}
+                                        <td>{{ $data->unit }}</td>
+                                        <td>{{ $data->penempatan }}</td>
+                                        <td>{{ $data->jenama }}</td>
+                                        <td>{{ $data->cpu }}</td>
+                                        <td>{{ $data->monitor }}</td>
+                                        <td>{{ $data->tahun }}</td>
+                                        <td>{{ $data->nopendaftaranasetkewpa }}</td>
+                                        <td>{{ $data->status }}</td>
+                                        <td>{{ $data->cadangan }}</td>
+                                        <td>{{ $data->catatan }}</td>
+                                        <td><a href="/si/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                            <form method="post"
+                                            action="/si/{{ $data->id }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="delete"
+                                                onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+
+                                            </td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                            </thead>
                         </table>
+
+                        <table class="table table-bordered">
+                            <thead style="text-align: center">
+
+                                <!-- Table for data update (KOMPUTER riba) -->
+                                <tr>
+                                    <th colspan="11">Komputer Riba</th>
+                                </tr>
+                            <tbody style="text-align: center">
+                                <tr>
+                                    <th rowspan="2">Unit</th>
+                                    <th rowspan="2">Penempatan</th>
+                                    <th rowspan="2">Jenama</th>
+                                    <th colspan="2">No. Siri</th>
+                                    <th rowspan="2">Tahun</th>
+                                    <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
+                                    <th rowspan="2">Status (Baik/Rosak)</th>
+                                    <th rowspan="2">Cadangan (Lupus/Guna)</th>
+                                    <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
+                                </tr>
+                                <tr>
+                                    <th>CPU</th>
+                                    <th>Monitor</th>
+                                </tr>
+                                <tr>
+                                    <th>(a)</th>
+                                    <th>(b)</th>
+                                    <th>(c)</th>
+                                    <th>(d)</th>
+                                    <th>(e)</th>
+                                    <th>(f)</th>
+                                    <th>(g)</th>
+                                    <th>(h)</th>
+                                    <th>(i)</th>
+                                    <th>(j)</th>
+                                </tr>
+                                @foreach ($datas->where('jenis', 'Komputer Riba') as $data)
+                                    <tr>
+                                        <td>{{ $data->unit }}</td>
+                                        <td>{{ $data->penempatan }}</td>
+                                        <td>{{ $data->jenama }}</td>
+                                        <td>{{ $data->cpu }}</td>
+                                        <td>{{ $data->monitor }}</td>
+                                        <td>{{ $data->tahun }}</td>
+                                        <td>{{ $data->nopendaftaranasetkewpa }}</td>
+                                        <td>{{ $data->status }}</td>
+                                        <td>{{ $data->cadangan }}</td>
+                                        <td>{{ $data->catatan }}</td>
+                                        <td><a href="/si/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                            <form method="post"
+                                            action="/si/{{ $data->id }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="delete"
+                                                onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+
+                                            </td>
+
+
+                                    </tr>
+                                @endforeach
+
+
+                            </tbody>
+                            </thead>
+                        </table>
+
+                        <table class="table table-bordered">
+                            <thead style="text-align: center">
+
+                                <!-- Table for data update (KOMPUTER MEJA) -->
+                                <tr>
+                                    <th colspan="11">Pencetak</th>
+                                </tr>
+                            <tbody style="text-align: center">
+                                <tr>
+                                    <th rowspan="2">Unit</th>
+                                    <th rowspan="2">Penempatan</th>
+                                    <th rowspan="2">Jenama</th>
+                                    <th colspan="2">No. Siri</th>
+                                    <th rowspan="2">Tahun</th>
+                                    <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
+                                    <th rowspan="2">Status (Baik/Rosak)</th>
+                                    <th rowspan="2">Cadangan (Lupus/Guna)</th>
+                                    <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
+                                </tr>
+                                <tr>
+                                    <th>CPU</th>
+                                    <th>Monitor</th>
+                                </tr>
+                                <tr>
+                                    <th>(a)</th>
+                                    <th>(b)</th>
+                                    <th>(c)</th>
+                                    <th>(d)</th>
+                                    <th>(e)</th>
+                                    <th>(f)</th>
+                                    <th>(g)</th>
+                                    <th>(h)</th>
+                                    <th>(i)</th>
+                                    <th>(j)</th>
+                                </tr>
+
+                                @foreach ($datas->where('jenis', 'Pencetak') as $data)
+                                <tr>
+                                    <td>{{ $data->unit }}</td>
+                                    <td>{{ $data->penempatan }}</td>
+                                    <td>{{ $data->jenama }}</td>
+                                    <td>{{ $data->cpu }}</td>
+                                    <td>{{ $data->monitor }}</td>
+                                    <td>{{ $data->tahun }}</td>
+                                    <td>{{ $data->nopendaftaranasetkewpa }}</td>
+                                    <td>{{ $data->status }}</td>
+                                    <td>{{ $data->cadangan }}</td>
+                                    <td>{{ $data->catatan }}</td>
+                                    <td><a href="/si/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                        <form method="post"
+                                        action="/si/{{ $data->id }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="delete"
+                                            onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+
+                                        </td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+                            </thead>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead style="text-align: center">
+
+                                <!-- Table for data update (KOMPUTER MEJA) -->
+                                <tr>
+                                    <th colspan="11">Pengimbas</th>
+                                </tr>
+                            <tbody style="text-align: center">
+                                <tr>
+                                    <th rowspan="2">Unit</th>
+                                    <th rowspan="2">Penempatan</th>
+                                    <th rowspan="2">Jenama</th>
+                                    <th colspan="2">No. Siri</th>
+                                    <th rowspan="2">Tahun</th>
+                                    <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
+                                    <th rowspan="2">Status (Baik/Rosak)</th>
+                                    <th rowspan="2">Cadangan (Lupus/Guna)</th>
+                                    <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
+
+                                </tr>
+                                <tr>
+                                    <th>CPU</th>
+                                    <th>Monitor</th>
+                                </tr>
+                                <tr>
+                                    <th>(a)</th>
+                                    <th>(b)</th>
+                                    <th>(c)</th>
+                                    <th>(d)</th>
+                                    <th>(e)</th>
+                                    <th>(f)</th>
+                                    <th>(g)</th>
+                                    <th>(h)</th>
+                                    <th>(i)</th>
+                                    <th>(j)</th>
+                                </tr>
+
+                                @foreach ($datas->where('jenis', 'Pengimbas') as $data)
+                                    <tr>
+                                        <td>{{ $data->unit }}</td>
+                                        <td>{{ $data->penempatan }}</td>
+                                        <td>{{ $data->jenama }}</td>
+                                        <td>{{ $data->cpu }}</td>
+                                        <td>{{ $data->monitor }}</td>
+                                        <td>{{ $data->tahun }}</td>
+                                        <td>{{ $data->nopendaftaranasetkewpa }}</td>
+                                        <td>{{ $data->status }}</td>
+                                        <td>{{ $data->cadangan }}</td>
+                                        <td>{{ $data->catatan }}</td>
+                                        <td><a href="/si/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                            <form method="post"
+                                            action="/si/{{ $data->id }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="delete"
+                                                onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+
+                                            </td>
+                                        </form>
+                                    </div>
+
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                            </thead>
+                        </table>
+                        <br>
                         <a href="/si/wilayahtimur"><button type="button" class="btn btn-default">Back</button>
                         <a href="/si/index"><button type="button" class="btn btn-default">Home</button>
                         <a href="/si/kemaskiniperalatan"><button type="button" class="btn btn-default" style="float:right;">Kemaskini Peralatan</button>
@@ -299,11 +549,11 @@ table.table td a {
                     txtValue = a[i].textContent || a[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     a[i].style.display = "";
-                    }            
+                    }
                 else {
                     a[i].style.display = "none";
                 }
             }
         } </script>
-                       
+
     @endsection

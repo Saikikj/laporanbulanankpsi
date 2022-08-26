@@ -20,7 +20,7 @@ body {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -63,7 +63,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 table.table td a.add {
     color: #27C46B;
 }
@@ -81,7 +81,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -132,45 +132,83 @@ table.table td .add {
                         <th colspan="6">Status Peralatan</th>
                     </tr>
                     <tr>
-                        <th rowspan="2">Siri</th>
                         <th rowspan="2">Markas</th>
-                        <th rowspan="2">Kuantiti</th>
-                        <th colspan="2">Status</th>
+                        <th colspan="2">Jenis Peralatan</th>
+                        <th rowspan="2">Status</th>
+                        <th rowspan="2">Catatan</th>
                         <th rowspan="2">Tindakan</th>
                     </tr>
                     <tr>
-                        <th>Baik</th>
-                        <th>Rosak</th>
+                        <th>Fitted</th>
+                        <th>Flyway Kit</th>
                     </tr>
                 </thead>
                 <tbody style="text-align: center">
+                    @foreach ($dataperalatan as $data)
                     <tr>
-                        <td>1</td>
-                        <td style="text-align: left">Markas Pemerintahan Armada Barat</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td><a href="/markas/centrixs/centrixsbarat"><button type="button" class="btn btn-default">lihat</button></a>
+                        <td>{{ $data->markas }}</td>
+                        <td>{{ $data->fitted }}</td>
+                        <td>{{ $data->flywaykit }}</td>
+                        <td>{{ $data->status}}</td>
+                        <td>{{ $data->catatan }}</td>
+                        <td>
+                            <a href="/kom/centrixs/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                            <a href="/kom/centrixs/edit/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                        </td>
+                        {{-- <td><a href="/kom/centrixs/{{ $data->id }}"><i class="material-icons">&#xE254;</i></a>
+                            <form method="post" action="/kom/centrixs/{{ $data->id }}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="delete"
+                                    onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                            </form> --}}
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td style="text-align: left">Markas Pemerintahan Armada Timur</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td><a href="/markas/centrixs"><button type="button" class="btn btn-default">lihat</button></a>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td style="text-align: left">Markas Pemerintahan Kapal Selam</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td><a href="/markas/centrixs/centrixsmpks"><button type="button" class="btn btn-default">lihat</button></a>
-                    </tr>
+                @endforeach
                 </tbody>
             </table>
-            <a href="/markas/centrixs/addnew"><button type="button" class="btn btn-default" style="float:right;">Tambah Peralatan</button> 
+            <table class="table table-bordered">
+                <thead style="text-align: center" >
+                    <tr>
+                        <th colspan="6">Rekod Penggunaan</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">Bulan</th>
+                        <th rowspan="2">Penggunaan <br>Latihan/Eksesais/Operasi</th>
+                        <th colspan="2">Tarikh</th>
+                        <th rowspan="2">Catatan</th>
+                        <th rowspan="2">Action</th>
+                    </tr>
+                    <tr>
+                        <th>Mula</th>
+                        <th>Tamat</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center">
+                    @foreach ($datarekod as $data)
+                    <tr>
+                        <td>{{ $data->bulan }}</td>
+                        <td>{{ $data->penggunaan }}</td>
+                        <td>{{ $data->mula}}</td>
+                        <td>{{ $data->tamat }}</td>
+                        <td>{{ $data->catatan }}</td>
+                        <td>
+                            <a href="/kom/centrixs/deleteRekod/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                            <a href="/kom/centrixs/editRekod/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                        </td>
+                        {{-- <td><a href="/kom/centrixs/{{ $data->id }}"><i class="material-icons">&#xE254;</i></a>
+                            <form method="post" action="/kom/centrixs/{{ $data->id }}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="delete"
+                                    onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                            </form>
+                        </td> --}}
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <a href="/kom/centrixs/addnew"><button type="button" class="btn btn-default" style="float:right;">Tambah Peralatan</button>
             <a href="/kom/index"><button type="button" class="btn btn-default">back</button>
                 {{-- <a href="#" class="previous round">&#8249;</a> --}}
 

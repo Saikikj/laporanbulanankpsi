@@ -82,7 +82,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -99,7 +99,7 @@ table.table td .add {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -109,7 +109,7 @@ table.table td .add {
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
-/* 
+/*
 
 .table-title h2 {
     margin: 6px 0 0;
@@ -129,7 +129,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 
  */
 
@@ -200,7 +200,23 @@ table.table td a {
 
 .show {display: block;}
 
+div.scrollmenu {
+  /* background-color: #333; */
+  overflow: auto;
+  white-space: nowrap;
+}
 
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
 
 </style>
 
@@ -215,7 +231,7 @@ table.table td a {
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
                 // '<td><input type="text" class="form-control" name="bil" id="bil"></td>' + //will fill from db count when add new RECORD PERALATAN
-                // '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' + 
+                // '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' +
                 '<td><input type="number" class="form-control" name="Tahun" id="Tahun"></td>' +
                 '<td><input type="number" class="form-control" name="PejabatPTL" id="PejabatPTL"></td>' +
                 '<td><input type="number" class="form-control" name="PejabatTPTL" id="PejabatTPTL"></td>' +
@@ -233,9 +249,9 @@ table.table td a {
                 '<td><input type="number" class="form-control" name="KPSI" id="KPSI"></td>' +
                 '<td><input type="number" class="form-control" name="BIJ" id="BIJ"></td>' +
                 '<td>' + actions + '</td>' +
-                
+
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -255,16 +271,16 @@ table.table td a {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -273,7 +289,7 @@ table.table td a {
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
         });
-        
+
     });
 </script>
        <div class="container-fluid">
@@ -293,18 +309,615 @@ table.table td a {
                                 <div class="col-sm-8"><h3>Peralatan P4 Markas Logistik Barat</h3></div>
                                 <!-- <h5>Sila Pilih Unit Anda</h5> -->
                                 <!-- <div class="col-sm-4">
-                                    
+
                                     <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                                 </div> -->
                             </div>
-                        </div>  
-                    
-                        <br>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Komputer Meja</button>
+                        <div class="content">
+                            <div class="scrollmenu">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+                                        <th rowspan="1">Bahagian</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">No Siri CPU</th>
+                                        <th rowspan="1">No Siri Monitor</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Terminal NC2 <br>(Ada/tiada)</th>
+                                        <th rowspan="1">Nama Daftar</th>
+                                        <th rowspan="1">Processor</th>
+                                        <th rowspan="1">RAM</th>
+                                        <th rowspan="1">Operating System</th>
+                                        <th rowspan="1">MS Office</th>
+                                        <th rowspan="1">Anti Virus</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+
+                                    </tr>
+                                    @foreach ($datapc as $data)
+                                        <tr>
+
+                                            <td>{{ $data->unit }}</td>
+                                            <td>{{ $data->perjawatan }}</td>
+                                            <td>{{ $data->notentera }}</td>
+                                            <td>{{ $data->pangkat }}</td>
+                                            <td>{{ $data->tred }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->nosiricpu }}</td>
+                                            <td>{{ $data->nosirimonitor }}</td>
+                                            <td>{{ $data->jenama }}</td>
+                                            <td>{{ $data->tahun }}</td>
+                                            <td>{{ $data->status }}</td>
+                                            <td>{{ $data->terminalnc2 }}</td>
+                                            <td>{{ $data->namadaftar }}</td>
+                                            <td>{{ $data->processor }}</td>
+                                            <td>{{ $data->ram }}</td>
+                                            <td>{{ $data->operatingsystem }}</td>
+                                            <td>{{ $data->msoffice }}</td>
+                                            <td>{{ $data->antivirus}}</td>
+                                            <td>{{ $data->rujukankewpa}}</td>
+                                            <td>{{ $data->catatan }}</td>
+                                            <td>
+                                                <a href="/p4/mklb/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                                <a href="/p4/mklb/edit/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+
+                                </tbody>
+                                </thead>
+                            </table>
+                            </div>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Komputer Riba</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No. Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Nama User</th>
+                                        <th rowspan="1">Processor</th>
+                                        <th rowspan="1">RAM</th>
+                                        <th rowspan="1">Windows</th>
+                                        <th rowspan="1">MS Office</th>
+                                        <th rowspan="1">Anti Virus</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+
+
+
+                                    </tr>
+                                    @foreach ($datalaptop as $data)
+                                        <tr>
+
+                                            <td>{{ $data->unit }}</td>
+                                            <td>{{ $data->perjawatan }}</td>
+                                            <td>{{ $data->notentera }}</td>
+                                            <td>{{ $data->pangkat }}</td>
+                                            <td>{{ $data->tred }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->nosiri }}</td>
+                                            <td>{{ $data->jenama }}</td>
+                                            <td>{{ $data->tahun }}</td>
+                                            <td>{{ $data->status }}</td>
+                                            <td>{{ $data->namadaftar }}</td>
+                                            <td>{{ $data->processor}}</td>
+                                            <td>{{ $data->ram }}</td>
+                                            <td>{{ $data->operatingsystem}}</td>
+                                            <td>{{ $data->msoffice }}</td>
+                                            <td>{{ $data->antivirus}}</td>
+                                            <td>{{ $data->rujukankewpa}}</td>
+                                            <td>{{ $data->catatan }}</td>
+                                            <td>
+                                                <a href="/p4/mklb/deleteLaptop/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                                <a href="/p4/mklb/editLaptop/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Pencetak</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">Lokasi</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Toner</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+
+
+
+                                    </tr>
+                                    @foreach ($dataprinter as $data)
+                                        <tr>
+
+                                            <td>{{ $data->unit }}</td>
+                                            <td>{{ $data->perjawatan }}</td>
+                                            <td>{{ $data->notentera }}</td>
+                                            <td>{{ $data->pangkat }}</td>
+                                            <td>{{ $data->tred }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->lokasi }}</td>
+                                            <td>{{ $data->nosiri }}</td>
+                                            <td>{{ $data->jenama }}</td>
+                                            <td>{{ $data->toner }}</td>
+                                            <td>{{ $data->status }}</td>
+                                            <td>{{ $data->rujukankewpa }}</td>
+                                            <td>{{ $data->catatan }}</td>
+                                            <td>
+                                                <a href="/p4/mklb/deletePrinter/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                                <a href="/p4/mklb/editPrinter/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Scanner</button>
+<div class="content">
+                        <table class="table table-bordered">
+                            <tbody style="text-align: center">
+                            <tr>
+
+
+                                <th rowspan="1">Unit</th>
+                                <th rowspan="1">Perjawatan</th>
+                                <th rowspan="1">No Tentera</th>
+                                <th rowspan="1">Pangkat</th>
+                                <th rowspan="1">TRED</th>
+                                <th rowspan="1">Nama</th>
+                                <th rowspan="1">Lokasi</th>
+                                <th rowspan="1">No. Siri</th>
+                                <th rowspan="1">Jenama</th>
+                                <th rowspan="1">Toner</th>
+                                <th rowspan="1">Tahun</th>
+                                <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                <th rowspan="1">Rujukan KEWPA</th>
+                                <th rowspan="1">Catatan</th>
+                                <th rowspan="1">Tindakan</th>
+                            </tr>
+                            @foreach ($datascanner as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->toner }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteScanner/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editScanner/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                            </tbody>
+                    </table>
+</div>
+                        <button class="collapsible" style="text-align:center">Facsimile</button>
+<div class="content">
+                        <table class="table table-bordered">
+                            <tbody style="text-align: center">
+                            <tr>
+
+
+                                <th rowspan="1">Unit</th>
+                                <th rowspan="1">Perjawatan</th>
+                                <th rowspan="1">No Tentera</th>
+                                <th rowspan="1">Pangkat</th>
+                                <th rowspan="1">TRED</th>
+                                <th rowspan="1">Nama</th>
+                                <th rowspan="1">Lokasi</th>
+                                <th rowspan="1">No. Siri</th>
+                                <th rowspan="1">Jenama</th>
+                                <th rowspan="1">Tahun</th>
+                                <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                <th rowspan="1">Rujukan KEWPA</th>
+                                <th rowspan="1">Catatan</th>
+                                <th rowspan="1">Tindakan</th>
+                            </tr>
+                            @foreach ($datafacsimile as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->toner }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteFacsimile/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editFacsimile/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                            </tbody>
+                    </table>
+</div>
+<button class="collapsible" style="text-align:center">Switch Router</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+
+                                <th rowspan="1">Unit</th>
+                                <th rowspan="1">Perjawatan</th>
+                                <th rowspan="1">No Tentera</th>
+                                <th rowspan="1">Pangkat</th>
+                                <th rowspan="1">TRED</th>
+                                <th rowspan="1">Nama</th>
+                                <th rowspan="1">Lokasi</th>
+                                <th rowspan="1">No. Siri</th>
+                                <th rowspan="1">Jenama</th>
+                                <th rowspan="1">Tahun</th>
+                                <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                <th rowspan="1">Rujukan KEWPA</th>
+                                <th rowspan="1">Catatan</th>
+                                <th rowspan="1">Tindakan</th>
+                            </tr>
+                            @foreach ($dataswitchrouter as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteSwitchrouter/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editSwitchrouter/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Fiber Optic Converter</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+                                    <th rowspan="1">Unit</th>
+                                    <th rowspan="1">Perjawatan</th>
+                                    <th rowspan="1">No Tentera</th>
+                                    <th rowspan="1">Pangkat</th>
+                                    <th rowspan="1">TRED</th>
+                                    <th rowspan="1">Nama</th>
+                                    <th rowspan="1">Lokasi</th>
+                                    <th rowspan="1">No. Siri</th>
+                                    <th rowspan="1">Jenama</th>
+                                    <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                    <th rowspan="1">Rujukan KEWPA</th>
+                                    <th rowspan="1">Catatan</th>
+                                    <th rowspan="1">Tindakan</th>
+                                </tr>
+                                 @foreach ($datafiber as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteFiber/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editFiber/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <button class="collapsible" style="text-align:center">ACU</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">Lokasi</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+                                    </tr>
+                                     @foreach ($dataacu as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteAcu/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editAcu/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="collapsible" style="text-align:center">UPS</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">Lokasi</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+                                    </tr>
+                                     @foreach ($dataups as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteUps/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editUps/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Security Access System</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">Lokasi</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+                                    </tr>
+                                     @foreach ($datasecurity as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteSecurity/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editSecurity/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Fire Alarm System</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">Lokasi</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+                                    </tr>
+                                     @foreach ($datafire as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteFire/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editFire/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="collapsible" style="text-align:center">Standby Generator</button>
+                        <div class="content">
+                            <table class="table table-bordered">
+                                <tbody style="text-align: center">
+                                    <tr>
+
+                                        <th rowspan="1">Unit</th>
+                                        <th rowspan="1">Perjawatan</th>
+                                        <th rowspan="1">No Tentera</th>
+                                        <th rowspan="1">Pangkat</th>
+                                        <th rowspan="1">TRED</th>
+                                        <th rowspan="1">Nama</th>
+                                        <th rowspan="1">Lokasi</th>
+                                        <th rowspan="1">No. Siri</th>
+                                        <th rowspan="1">Jenama</th>
+                                        <th rowspan="1">Tahun</th>
+                                        <th rowspan="1">Status <br> (Baik/Rosak)</th>
+                                        <th rowspan="1">Rujukan KEWPA</th>
+                                        <th rowspan="1">Catatan</th>
+                                        <th rowspan="1">Tindakan</th>
+                                    </tr>
+                                     @foreach ($datastandbygenerator as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mklb/deleteStandbygenerator/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mklb/editStandbygenerator/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
                         <a href="/p4/index"><button type="button" class="btn btn-default">Back</button>
                         <a href="/p4/index"><button type="button" class="btn btn-default">Home</button>
                         <a href="/p4/mklb/addnew"><button type="button" class="btn btn-default" style="float:right;">Tambah Peralatan</button>
-                        
-                        
+
+
 
                         </a>
                     </div>
@@ -327,7 +940,7 @@ for (i = 0; i < coll.length; i++) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
-    } 
+    }
   });
 }
 </script>

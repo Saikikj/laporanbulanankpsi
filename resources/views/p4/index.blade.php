@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
+    <style>
         .modal-body {
             background-color: #000000;
             background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
@@ -53,6 +53,7 @@
         #datatable tr {
             background: #ebebeb;
         }
+
         .btn-default {
             font-size: 13px;
             color: rgba(22, 21, 25, 0.75);
@@ -63,22 +64,20 @@
             background: transparent;
             transition: all 0.3s ease 0s;
         }
-        
-
     </style>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                <div class="card-header text-center">{{ __('STATUS PERALATAN P4') }}</div>
+                    <div class="card-header text-center">{{ __('STATUS PERALATAN P4') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        
+
                         <div class="row text-center">
                             <div class="col">
                                 <a href="mawilla1"><button class="btn btn-outline-primary my-2 w-100">
@@ -94,7 +93,7 @@
                             </div>
                             <div class="col">
                                 <a href="mawilla3"><button class="btn btn-outline-primary my-2 w-100">
-                                        Markas Wilayah Laut 3  
+                                        Markas Wilayah Laut 3
                                     </button>
                                 </a>
                             </div>
@@ -147,25 +146,35 @@
                                 </a>
                             </div>
 
-                        <div class="row text-center">
-                            <div class="col-lg-4">
-                                
+                            <div class="row text-center">
+                                <div class="col-md-4 offset-md-4">
+                                    <a href="kembaranA"><button class="btn btn-outline-primary my-2 w-100">
+                                            KEMBARAN A
+                                        </button>
+                                </div>
+                                <div class="col-md-4 offset-md-4">
+                                    <a href="kembaranB"><button class="btn btn-outline-primary my-2 w-100">
+                                            KEMBARAN B
+                                        </button>
+                                </div>
+                                <div class="col-md-4 offset-md-4">
+                                    <a href="kembaranC"><button class="btn btn-outline-primary my-2 w-100">
+                                            KEMBARAN C
+                                        </button>
+                                </div>
+                                <div class="col-md-4 offset-md-4">
+                                    <a href="kembaranD"><button class="btn btn-outline-primary my-2 w-100">
+                                            KEMBARAN D
+                                        </button>
+                                </div>
                             </div>
-                            <div class="col-lg-4">
-                                
-                            </div>
-                            <div class="col-lg-4">
-                                
-                            </div>
+
+
                         </div>
-                        
                     </div>
+                    <a href="/home"><button type="button" class="btn btn-default">Back</button>
                 </div>
-                <a href="/home"><button type="button" class="btn btn-default">Back</button>
-                {{-- <a href="#" class="previous round">&#8249;</a> --}}
             </div>
+
         </div>
-        
-    </div>
-    
-@endsection
+    @endsection

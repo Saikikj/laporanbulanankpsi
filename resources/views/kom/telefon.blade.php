@@ -20,7 +20,7 @@ body {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -63,7 +63,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 table.table td a.add {
     color: #27C46B;
 }
@@ -81,7 +81,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -124,17 +124,17 @@ table.table td .add {
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
-                
+
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
-                
+
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
                 '<td><input type="text" class="form-control" name="tamat" id="tamat"></td>' +
-                
+
                 '<td>' + actions + '</td>' +
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -154,16 +154,16 @@ table.table td .add {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -188,9 +188,9 @@ table.table td .add {
 
                         <div class="table-title">
                             <div class="row">
-                                <div class="col-sm-8"><h2>PENGOPERASIAN <b>TELEFON</b></h2></div>
+                                <div class="col-sm-8"><h2><b>TELEFON</b></h2></div>
                                 <div class="col-sm-4">
-                                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                                    {{-- <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> --}}
                                 </div>
                             </div>
                         </div>
@@ -198,10 +198,10 @@ table.table td .add {
                         <table class="table table-bordered">
                 <thead style="text-align: center">
                     <tr>
-                        <th colspan="30">Status Peralatan</th>
+                        <th colspan="30">Pengoperasian Telefon</th>
                     </tr>
                     <tr>
-                        <th rowspan="2">Siri</th>
+
                         <th rowspan="2">Lokasi</th>
                         <th rowspan="2">Negeri/Zon</th>
                         <th rowspan="2">Jumlah Talian</th>
@@ -212,38 +212,92 @@ table.table td .add {
                         <th rowspan="2">Faks</th>
                         <th colspan="2">Status</th>
                         <th rowspan="2">Catatan</th>
-                        
+                        <th rowspan="2">Tindakan</th>
+
 
                     </tr>
                     <tr>
                         <th rowspan="2">BAIK</th>
                         <th rowspan="2">ROSAK</th>
                     </tr>
-                    
+
                 </thead>
                 <tbody style="text-align: center">
+                    @foreach ($dataoperasi as $data)
                     <tr>
-                        <td>1</td>
-                        <td style="text-align: left"></td>
-                        <td>7</td>
-                        <td></td>
-                        <td>7</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $data->lokasi}}</td>
+                        <td>{{ $data->negerizon }}</td>
+                        <td>{{ $data->jumlahtalian}}</td>
+                        <td>{{ $data->taliansimpanan}}</td>
+                        <td>{{ $data->kata }}</td>
+                        <td>{{ $data->katb }}</td>
+                        <td>{{ $data->katc }}</td>
+                        <td>{{ $data->faks }}</td>
+                        <td>{{ $data->baik }}</td>
+                        <td>{{ $data->rosak }}</td>
+                        <td>{{ $data->catatan }}</td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
+                            <a href="/kom/telefon/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                            <a href="/kom/telefon/edit/{{ $data->id }}" class="btn btn-danger">Edit</a>
                         </td>
+                        {{-- <td><a href="/kom/telefon/{{ $data->id }}"><i class="material-icons">&#xE254;</i></a>
+                            <form method="post" action="/kom/telefon/{{ $data->id }}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="delete"
+                                    onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                            </form>
+                        </td> --}}
                     </tr>
+                @endforeach
                 </tbody>
             </table>
-            <a href="/markas/telefonibusawat"><button type="button" class="btn btn-default" style="float:right;">IBU SAWAT</button> 
+            <table class="table table-bordered">
+                <thead style="text-align: center">
+                    <tr>
+                        <th colspan="30">Ibu Sawat</th>
+                    </tr>
+                    <tr>
+
+                        <th rowspan="2">Zon</th>
+                        <th rowspan="2">Pasukan/Markas</th>
+                        <th rowspan="2">Talian Simpanan</th>
+                        <th rowspan="2">Negeri</th>
+                        <th rowspan="2">Ibu Sawat</th>
+                        <th rowspan="2">Console</th>
+                        <th rowspan="2">Catatan</th>
+                        <th rowspan="2">Tindakan</th>
+
+
+                    </tr>
+                </thead>
+                <tbody style="text-align: center">
+                    @foreach ($dataibusawat as $data)
+                    <tr>
+                        <td>{{ $data->zon}}</td>
+                        <td>{{ $data->pasukanmarkas }}</td>
+                        <td>{{ $data->taliansimpanan}}</td>
+                        <td>{{ $data->negeri }}</td>
+                        <td>{{ $data->ibusawat}}</td>
+                        <td>{{ $data->console}}</td>
+                        <td>{{ $data->catatan }}</td>
+                        <td>
+                            <a href="/kom/telefon/deleteIbusawat/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                            <a href="/kom/telefon/editIbusawat/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                        </td>
+                        {{-- <td><a href="/kom/telefon/{{ $data->id }}"><i class="material-icons">&#xE254;</i></a>
+                            <form method="post" action="/kom/telefon/{{ $data->id }}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="delete"
+                                    onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                            </form>
+                        </td> --}}
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <a href="/kom/telefon/addnew"><button type="button" class="btn btn-default" style="float:right;">Tambah Peralatan</button>
             <a href="/kom/index "><button type="button" class="btn btn-default">back</button>
                 {{-- <a href="#" class="previous round">&#8249;</a> --}}
 

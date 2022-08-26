@@ -49,7 +49,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -66,7 +66,7 @@ table.table td .add {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -76,7 +76,7 @@ table.table td .add {
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
-/* 
+/*
 
 .table-title h2 {
     margin: 6px 0 0;
@@ -96,7 +96,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 
  */
 
@@ -222,7 +222,7 @@ toggle between hiding and showing the dropdown content */
 function myFunction2() {
     document.getElementById("myDropdown2").classList.toggle("show");
   }
-  
+
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn2')) {
@@ -249,7 +249,7 @@ function myFunction2() {
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
                 '<td><input type="text" class="form-control" name="bil" id="bil"></td>' + //will fill from db count when add new RECORD PERALATAN
-                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' + 
+                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' +
                 '<td><input type="text" class="form-control" name="nosiri" id="nosiri"></td>' +
                 '<td><input type="text" class="form-control" name="issi" id="issi"></td>' +
                 '<td><input type="text" class="form-control" name="tarikhterima" id="tarikhterima"></td>' +
@@ -260,7 +260,7 @@ function myFunction2() {
                 '<td><input type="text" class="form-control" name="lokasisemasa" id="lokasisemasa"></td>' +
                 '<td>' + actions + '</td>' +
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -280,16 +280,16 @@ function myFunction2() {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -298,7 +298,7 @@ function myFunction2() {
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
         });
-        
+
     });
 </script>
 <script>//dropdown Menu
@@ -316,7 +316,7 @@ function myFunction2() {
                     txtValue = a[i].textContent || a[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     a[i].style.display = "";
-                    }            
+                    }
                 else {
                     a[i].style.display = "none";
                 }
@@ -344,27 +344,28 @@ function myFunction2() {
                                     <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                                 </div> -->
                             </div>
-                        </div>  
-                            <!-- INPUT -->
+                        </div>
+                        <form action="/si/wilayahbarat/mklb" method="POST" id="userformcreate">
+                            @csrf
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="form-group row">
                                         <label for="unit"
                                             class="col-md-4 col-form-label text-md-right">{{ __('Unit') }}</label>
                                         <div class="col-md-6">
-                                        
+
                                     <select class="form-control @error('unit') is-invalid @enderror" name="unit"
                                         value="{{ old('unit') }}" >
                                         <option value="" disabled selected>Sila Pilih Unit</option>
-                                        <option value="mklb">MK LB</option>
-                                        <option value="dbab">DBAB</option>
-                                        <option value="dsab">DSAB</option>
-                                        <option value="cpka">CPKA</option>
-                                        <option value="dbb">DBB</option>
-                                        <option value="depotpelurubarat">DEPOT PELURU BARAT</option>
-                                        <option value="depotkenderaantldm">DEPOT KENDERAAN TLDM</option>
-                                        <option value="unitpengawasansenggaraantldm">UNIT PENGAWASAN SENGGARAAN TLDM</option>
-                                        <option value="pplcstldm">PASUKAN PROJEK LCS TLDM</option>
+                                        <option value="MK LB">MK LB</option>
+                                        <option value="DBAB">DBAB</option>
+                                        <option value="DSAB">DSAB</option>
+                                        <option value="CPKA">CPKA</option>
+                                        <option value="DBB">DBB</option>
+                                        <option value="Depot Peluru Barat">DEPOT PELURU BARAT</option>
+                                        <option value="Depot Kenderaan TLDM">DEPOT KENDERAAN TLDM</option>
+                                        <option value="Unit Pengawasan Senggaraan TLDM">UNIT PENGAWASAN SENGGARAAN TLDM</option>
+                                        <option value="Pasukan Projek LCS TLDM">PASUKAN PROJEK LCS TLDM</option>
                                     </select>
                                     </div>
                                 </div>
@@ -373,21 +374,18 @@ function myFunction2() {
                                         <label for="jenisperalatan"
                                             class="col-md-4 col-form-label text-md-right">{{ __('Jenis Peralatan') }}</label>
                                         <div class="col-md-6">
-                                        
+
                                     <select class="form-control @error('jenisperalatan') is-invalid @enderror" name="jenisperalatan"
                                         value="{{ old('jenisperalatan') }}" >
                                         <option value="" disabled selected>Sila Pilih Jenis Peralatan</option>
-                                        <option value="kompmeja">Komputer Meja</option>
-                                        <option value="kompriba">Komputer Riba</option>
-                                        <option value="pengimbas">Pengimbas</option>
-                                        <option value="pencetak">Pencetak</option>
+                                        <option value="Komputer Meja">Komputer Meja</option>
+                                        <option value="Komputer Riba">Komputer Riba</option>
+                                        <option value="Pengimbas">Pengimbas</option>
+                                        <option value="Pencetak">Pencetak</option>
                                     </select>
                                     </div>
                                 </div>
-                        
-                            
-                            <form action="javascript:void(0)" method="POST" id="userformcreate">
-                                @csrf
+
                                 <div id="">
                                     <div class="form-group row">
                                         <label for="penempatan"
@@ -400,67 +398,67 @@ function myFunction2() {
                                                 placeholder="Peralatan ditempatkan di mana?" required>
                                         </div>
                                     </div>
-                                
+
                                 <div class="form-group row">
-                                    <label for="Jenama"
+                                    <label for="jenama"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Jenama') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Jenama" type="text"
-                                            class="form-control @error('Jenama') is-invalid @enderror" name="Jenama"
-                                            value="{{ old('Jenama') }}" placeholder="Jenama Peralatan" required>
+                                        <input id="jenama" type="text"
+                                            class="form-control @error('jenama') is-invalid @enderror" name="jenama"
+                                            value="{{ old('jenama') }}" placeholder="jenama Peralatan" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="CPU"
+                                    <label for="cpu"
                                         class="col-md-4 col-form-label text-md-right">{{ __('CPU') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="CPU" type="text"
-                                            class="form-control @error('CPU') is-invalid @enderror" name="CPU"
-                                            value="{{ old('CPU') }}" required>
+                                        <input id="cpu" type="text"
+                                            class="form-control @error('cpu') is-invalid @enderror" name="cpu"
+                                            value="{{ old('cpu') }}" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Monitor"
+                                    <label for="monitor"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Monitor') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Monitor" type="text"
-                                            class="form-control @error('Monitor') is-invalid @enderror" name="Monitor"
-                                            value="{{ old('Monitor') }}" required>
+                                        <input id="monitor" type="text"
+                                            class="form-control @error('monitor') is-invalid @enderror" name="monitor"
+                                            value="{{ old('monitor') }}" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Tahun"
+                                    <label for="tahun"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Tahun') }}</label>
 
                                     <div class="col-md-6">
-                                        <input type="number" name="Tahun" class="form-control" required>
+                                        <input type="number" name="tahun" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="PendaftaranAset"
+                                    <label for="nopendaftaranasetkewpa"
                                         class="col-md-4 col-form-label text-md-right">{{ __('No. Pendaftaran Aset (KEWPA)') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="PendaftaranAset" type="text"
-                                            class="form-control @error('PendaftaranAset') is-invalid @enderror" name="PendaftaranAset"
-                                            value="{{ old('PendaftaranAset') }}" >
+                                        <input id="nopendaftaranasetkewpa" type="text"
+                                            class="form-control @error('nopendaftaranasetkewpa') is-invalid @enderror" name="nopendaftaranasetkewpa"
+                                            value="{{ old('nopendaftaranasetkewpa') }}" >
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                <label for="Status"
+                                <label for="status"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control @error('Status') is-invalid @enderror" name="Status"
-                                            value="{{ old('Status') }}" >
+                                        <select class="form-control @error('status') is-invalid @enderror" name="status"
+                                            value="{{ old('status') }}" >
                                             <option value="" disabled selected>Sila Pilih Status</option>
                                             <option value="Baik">Baik</option>
                                             <option value="Rosak">Rosak</option>
@@ -468,13 +466,13 @@ function myFunction2() {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                <label for="Cadangan"
+                                <label for="cadangan"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Cadangan') }}</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control @error('Cadangan') is-invalid @enderror" name="Cadangan"
-                                            value="{{ old('Cadangan') }}" >
-                                            <option value="" disabled selected>Sila Pilih Cadangan</option>
+                                        <select class="form-control @error('cadangan') is-invalid @enderror" name="cadangan"
+                                            value="{{ old('cadangan') }}" >
+                                            <option value="" disabled selected>Sila Pilih cadangan</option>
                                             <option value="Guna">Guna</option>
                                             <option value="Lupus">Lupus</option>
                                         </select>
@@ -483,19 +481,19 @@ function myFunction2() {
                                 <!-- i dont even know what im doing ffs -->
 
                                 <div class="form-group row">
-                                    <label for="Catatan"
+                                    <label for="catatan"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Catatan') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Catatan" type="text"
-                                            class="form-control @error('Catatan') is-invalid @enderror" name="Catatan"
-                                            value="{{ old('Catatan') }}" >
+                                        <input id="catatan" type="text"
+                                            class="form-control @error('catatan') is-invalid @enderror" name="catatan"
+                                            value="{{ old('catatan') }}" >
 
                                             <!-- <input type="radio" style="width:auto" class="btn btn-primary">
                                             {{ __('GUNA') }}</button>
                                             <input type="radio" style="width:auto" class="btn btn-primary">
                                             {{ __('LUPUS') }}</button> -->
-                                            
+
 
                                     </div>
                                 </div>
@@ -508,7 +506,7 @@ function myFunction2() {
                                             {{ __('Set Semula') }}</button>
                                     </div>
                                 </div>
-                                
+
 
 
                                 </div>
@@ -535,8 +533,8 @@ function myFunction2() {
                                             <a href="/si/wilayahbarat/peralatanmktl/mktlunits/bij">BIJ</a>
                                         </div>
                                 </div> -->
-                        
-                            
+
+
                         <!-- ----------PILIH JENIS PERALATAN------------- -->
 
                             <!-- <div class="dropdown2">
@@ -549,7 +547,7 @@ function myFunction2() {
                             </div>
                             </div> -->
 
-                
+
                         <a href="/si/wilayahbarat/mklb/"><button type="button" class="btn btn-default">Back</button>
                         <a href="/si/index"><button type="button" class="btn btn-default">Home</button></a>
                     </div>
@@ -562,5 +560,5 @@ function myFunction2() {
 
 
 
-                       
+
     @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
     <style>
@@ -72,7 +72,7 @@
                         @endif
 
                         <div class="modal-body">
-                            
+
                             <table class="table table-bordered border-red">
                                 {{-- <caption>Updated: Feb 2022</caption> --}}
                                 <thead>

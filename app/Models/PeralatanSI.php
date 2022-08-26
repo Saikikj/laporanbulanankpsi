@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class PeralatanSI extends Model
 {
     use HasFactory;
+
+    protected $table = 'peralatan_s_i_s';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+    protected $fillable = [
+    'markas',
+    'unit',
+    'penempatan',
+    'jenisperalatan',
+    'jenama' ,
+    'cpu',
+    'monitor',
+    'tahun',
+    'nopendaftaranasetkewpa',
+    'status',
+    'cadangan',
+    'catatan'
+    ];
 }

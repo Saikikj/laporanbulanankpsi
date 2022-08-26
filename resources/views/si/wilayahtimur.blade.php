@@ -63,7 +63,7 @@
             background: transparent;
             transition: all 0.3s ease 0s;
         }
-        
+
 
     </style>
 
@@ -228,7 +228,7 @@
 
                                 </div>
                             </div>
-                        </div>         
+                        </div>
                         <div class="row text-center">
                             <div class="col-md-4 offset-md-4">
                                 <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
@@ -268,9 +268,9 @@
                                     </button>
                                 </a>
                             </div>
-                            
+
                             <div class="col">
-                                <a href="/si/armadapoh"><button class="btn btn-outline-primary my-2 w-100">
+                                <a href="/si/armadapoh/armadapoh"><button class="btn btn-outline-primary my-2 w-100">
                                         Armada TLDM dan Pangkalan Hadapan
                                     </button>
                                 </a>
@@ -278,23 +278,23 @@
 
                         <div class="row text-center">
                             <div class="col-lg-4">
-                                
+
                             </div>
                             <div class="col-lg-4">
-                                
+
                             </div>
                             <div class="col-lg-4">
-                                
+
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <a href="/si/index"><button type="button" class="btn btn-default">Back</button>
                 {{-- <a href="#" class="previous round">&#8249;</a> --}}
             </div>
         </div>
-        
+
     </div>
-    
+
 @endsection

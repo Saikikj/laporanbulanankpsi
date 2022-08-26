@@ -295,13 +295,14 @@
                                 <tr>
                                     <th rowspan="2">Unit</th>
                                     <th rowspan="2">Penempatan</th>
-                                    <th rowspan="2">Jenis</th>
+                                    <th rowspan="2">Jenama</th>
                                     <th colspan="2">No. Siri</th>
                                     <th rowspan="2">Tahun</th>
                                     <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
                                     <th rowspan="2">Status (Baik/Rosak)</th>
                                     <th rowspan="2">Cadangan (Lupus/Guna)</th>
                                     <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
                                 </tr>
                                 <tr>
                                     <th>CPU</th>
@@ -318,13 +319,15 @@
                                     <th>(h)</th>
                                     <th>(i)</th>
                                     <th>(j)</th>
+                                    <th>(k)</th>
                                 </tr>
-                                @foreach ($datas->where('jenis', 'Komputer Meja') as $data)
+
+                                @foreach ($datas->where('jenisperalatan', 'Komputer Meja') as $data)
                                     <tr>
                                         {{-- {{ $data->(nama column)}} --}}
                                         <td>{{ $data->unit }}</td>
                                         <td>{{ $data->penempatan }}</td>
-                                        <td>{{ $data->jenis }}</td>
+                                        <td>{{ $data->jenama }}</td>
                                         <td>{{ $data->cpu }}</td>
                                         <td>{{ $data->monitor }}</td>
                                         <td>{{ $data->tahun }}</td>
@@ -332,6 +335,19 @@
                                         <td>{{ $data->status }}</td>
                                         <td>{{ $data->cadangan }}</td>
                                         <td>{{ $data->catatan }}</td>
+                                        <td>
+                                            <a href="/si/wilayahbarat/mktl/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/si/wilayahbarat/mktl/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                        </td>
+                                        {{-- <td><a href="/si/wilayahbarat/mktl/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                            <form method="post"
+                                            action="/si/wilayahbarat/mktl/{{ $data->id }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="delete"
+                                                onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                                            </form>
+                                            </td> --}}
                                     </tr>
                                 @endforeach
 
@@ -350,13 +366,14 @@
                                 <tr>
                                     <th rowspan="2">Unit</th>
                                     <th rowspan="2">Penempatan</th>
-                                    <th rowspan="2">Jenis</th>
+                                    <th rowspan="2">Jenama</th>
                                     <th colspan="2">No. Siri</th>
                                     <th rowspan="2">Tahun</th>
                                     <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
                                     <th rowspan="2">Status (Baik/Rosak)</th>
                                     <th rowspan="2">Cadangan (Lupus/Guna)</th>
                                     <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
                                 </tr>
                                 <tr>
                                     <th>CPU</th>
@@ -374,11 +391,11 @@
                                     <th>(i)</th>
                                     <th>(j)</th>
                                 </tr>
-                                @foreach ($datas->where('jenis', 'Komputer Riba') as $data)
+                                @foreach ($datas->where('jenisperalatan', 'Komputer Riba') as $data)
                                     <tr>
                                         <td>{{ $data->unit }}</td>
                                         <td>{{ $data->penempatan }}</td>
-                                        <td>{{ $data->jenis }}</td>
+                                        <td>{{ $data->jenama }}</td>
                                         <td>{{ $data->cpu }}</td>
                                         <td>{{ $data->monitor }}</td>
                                         <td>{{ $data->tahun }}</td>
@@ -386,6 +403,21 @@
                                         <td>{{ $data->status }}</td>
                                         <td>{{ $data->cadangan }}</td>
                                         <td>{{ $data->catatan }}</td>
+                                        <td>
+                                            <a href="/si/wilayahbarat/mktl/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/si/wilayahbarat/mktl/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                        </td>
+                                        {{-- <td><a href="/si/wilayahbarat/mktl/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                            <form method="post"
+                                            action="/si/wilayahbarat/mktl/{{ $data->id }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="delete"
+                                                onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                                            </form>
+                                            </td> --}}
+
+
                                     </tr>
                                 @endforeach
 
@@ -405,13 +437,14 @@
                                 <tr>
                                     <th rowspan="2">Unit</th>
                                     <th rowspan="2">Penempatan</th>
-                                    <th rowspan="2">Jenis</th>
+                                    <th rowspan="2">Jenama</th>
                                     <th colspan="2">No. Siri</th>
                                     <th rowspan="2">Tahun</th>
                                     <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
                                     <th rowspan="2">Status (Baik/Rosak)</th>
                                     <th rowspan="2">Cadangan (Lupus/Guna)</th>
                                     <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
                                 </tr>
                                 <tr>
                                     <th>CPU</th>
@@ -430,11 +463,11 @@
                                     <th>(j)</th>
                                 </tr>
 
-                                @foreach ($datas->where('jenis', 'Pencetak') as $data)
+                                @foreach ($datas->where('jenisperalatan', 'Pencetak') as $data)
                                 <tr>
                                     <td>{{ $data->unit }}</td>
                                     <td>{{ $data->penempatan }}</td>
-                                    <td>{{ $data->jenis }}</td>
+                                    <td>{{ $data->jenama }}</td>
                                     <td>{{ $data->cpu }}</td>
                                     <td>{{ $data->monitor }}</td>
                                     <td>{{ $data->tahun }}</td>
@@ -442,6 +475,19 @@
                                     <td>{{ $data->status }}</td>
                                     <td>{{ $data->cadangan }}</td>
                                     <td>{{ $data->catatan }}</td>
+                                        <td>
+                                            <a href="/si/wilayahbarat/mktl/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/si/wilayahbarat/mktl/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                        </td>
+                                    {{-- <td><a href="/si/wilayahbarat/mktl/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                        <form method="post"
+                                        action="/si/wilayahbarat/mktl/{{ $data->id }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="delete"
+                                            onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                                        </form>
+                                        </td> --}}
                                 </tr>
                             @endforeach
 
@@ -459,13 +505,15 @@
                                 <tr>
                                     <th rowspan="2">Unit</th>
                                     <th rowspan="2">Penempatan</th>
-                                    <th rowspan="2">Jenis</th>
+                                    <th rowspan="2">Jenama</th>
                                     <th colspan="2">No. Siri</th>
                                     <th rowspan="2">Tahun</th>
                                     <th rowspan="2">No. Pendaftaran Aset (KEWPA)</th>
                                     <th rowspan="2">Status (Baik/Rosak)</th>
                                     <th rowspan="2">Cadangan (Lupus/Guna)</th>
                                     <th rowspan="2">Catatan</th>
+                                    <th rowspan="2">Tindakan</th>
+
                                 </tr>
                                 <tr>
                                     <th>CPU</th>
@@ -484,11 +532,11 @@
                                     <th>(j)</th>
                                 </tr>
 
-                                @foreach ($datas->where('jenis', 'Pengimbas') as $data)
+                                @foreach ($datas->where('jenisperalatan', 'Pengimbas') as $data)
                                     <tr>
                                         <td>{{ $data->unit }}</td>
                                         <td>{{ $data->penempatan }}</td>
-                                        <td>{{ $data->jenis }}</td>
+                                        <td>{{ $data->jenama }}</td>
                                         <td>{{ $data->cpu }}</td>
                                         <td>{{ $data->monitor }}</td>
                                         <td>{{ $data->tahun }}</td>
@@ -496,6 +544,22 @@
                                         <td>{{ $data->status }}</td>
                                         <td>{{ $data->cadangan }}</td>
                                         <td>{{ $data->catatan }}</td>
+                                        <td>
+                                            <a href="/si/wilayahbarat/mktl/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                            <a href="/si/wilayahbarat/mktl/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                        </td>
+                                        {{-- <td><a href="/si/wilayahbarat/mktl/{{$data->id}}"><i class="material-icons">&#xE254;</i></a>
+                                            <form method="post"
+                                            action="/si/wilayahbarat/mktl/{{ $data->id }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="delete"
+                                                onclick="return confirm('Anda pasti mahu padam rekod ini?')"><i class="material-icons">&#xE872;</i></button>
+                                            </form>
+                                            </td> --}}
+                                        </form>
+                                    </div>
+
                                     </tr>
                                 @endforeach
 
@@ -508,35 +572,10 @@
                                 <a href="/si/wilayahbarat/mktl/addnew"><button type="button" class="btn btn-default"
                                         style="float:right;">Tambah Peralatan</button>
                                 </a>
+                            </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-    <script>
-        //dropdown Menu
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        function filterFunction() {
-            var input, filter, ul, li, a, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            div = document.getElementById("myDropdown");
-            a = div.getElementsByTagName("a");
-            for (i = 0; i < a.length; i++) {
-                txtValue = a[i].textContent || a[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    a[i].style.display = "";
-                } else {
-                    a[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 @endsection

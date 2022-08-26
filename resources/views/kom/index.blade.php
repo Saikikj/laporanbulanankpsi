@@ -208,7 +208,7 @@
                         </div>
 
                         {{-- CENTRIXS --}}
-                        
+
                         <div class="row text-center">
                             <div class="col-md-4 offset-md-4">
                                 <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
@@ -256,7 +256,7 @@
                                     </button>
                                 </a>
                             </div>
-                    
+
                             <div class="col">
                                 <a href="rmpnet"><button class="btn btn-outline-primary my-2 w-100">
                                         RMPNET
@@ -278,7 +278,7 @@
                                     </button>
                                 </a>
                             </div>
-                        
+
                             <div class="col">
                                 <a href="nco"><button class="btn btn-outline-primary my-2 w-100">
                                         NCO
@@ -328,7 +328,8 @@
                                 </a>
                             </div>
                         </div>
-                    
+                        <a href="/home"><button type="button" class="btn btn-default">Back</button>
+
     <script>
         Highcharts.chart('container', {
             data: {

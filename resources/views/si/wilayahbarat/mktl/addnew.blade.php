@@ -408,22 +408,20 @@
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="form-group row">
-                                            <label for="jenisperalatan"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Jenis Peralatan') }}</label>
-                                            <div class="col-md-6">
+                                                <label for="jenisperalatan"
+                                                    class="col-md-4 col-form-label text-md-right">{{ __('Jenis Peralatan') }}</label>
+                                                <div class="col-md-6">
 
-                                                <select class="form-control @error('jenisperalatan') is-invalid @enderror"
-                                                    name="jenisperalatan" value="{{ old('jenisperalatan') }}">
-                                                    <option value="" disabled selected>Sila Pilih Jenis Peralatan
-                                                    </option>
-                                                    <option value="Komputer Meja">Komputer Meja</option>
-                                                    <option value="Komputer Riba">Komputer Riba</option>
-                                                    <option value="Pengimbas">Pengimbas</option>
-                                                    <option value="Pencetak">Pencetak</option>
-                                                </select>
+                                            <select class="form-control @error('jenisperalatan') is-invalid @enderror" name="jenisperalatan"
+                                                value="{{ old('jenisperalatan') }}" >
+                                                <option value="" disabled selected>Sila Pilih Jenis Peralatan</option>
+                                                <option value="Komputer Meja">Komputer Meja</option>
+                                                <option value="Komputer Riba">Komputer Riba</option>
+                                                <option value="Pengimbas">Pengimbas</option>
+                                                <option value="Pencetak">Pencetak</option>
+                                            </select>
                                             </div>
                                         </div>
-
 
                                         <div id="">
                                             <div class="form-group row">
@@ -438,114 +436,113 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
-                                                <label for="Jenama"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('Jenama') }}</label>
+                                        <div class="form-group row">
+                                            <label for="jenama"
+                                                class="col-md-4 col-form-label text-md-right">{{ __('Jenama') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input id="Jenama" type="text"
-                                                        class="form-control @error('Jenama') is-invalid @enderror"
-                                                        name="Jenama" value="{{ old('Jenama') }}"
-                                                        placeholder="Jenama Peralatan" required>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <input id="jenama" type="text"
+                                                    class="form-control @error('jenama') is-invalid @enderror" name="jenama"
+                                                    value="{{ old('jenama') }}" placeholder="jenama Peralatan" required>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group row">
-                                                <label for="CPU"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('CPU') }}</label>
+                                        <div class="form-group row">
+                                            <label for="cpu"
+                                                class="col-md-4 col-form-label text-md-right">{{ __('CPU') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input id="CPU" type="text"
-                                                        class="form-control @error('CPU') is-invalid @enderror"
-                                                        name="CPU" value="{{ old('CPU') }}" required>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <input id="cpu" type="text"
+                                                    class="form-control @error('cpu') is-invalid @enderror" name="cpu"
+                                                    value="{{ old('cpu') }}" required>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group row">
-                                                <label for="Monitor"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('Monitor') }}</label>
+                                        <div class="form-group row">
+                                            <label for="monitor"
+                                                class="col-md-4 col-form-label text-md-right">{{ __('Monitor') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input id="Monitor" type="text"
-                                                        class="form-control @error('Monitor') is-invalid @enderror"
-                                                        name="Monitor" value="{{ old('Monitor') }}" required>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <input id="monitor" type="text"
+                                                    class="form-control @error('monitor') is-invalid @enderror" name="monitor"
+                                                    value="{{ old('monitor') }}" required>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group row">
-                                                <label for="Tahun"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('Tahun') }}</label>
+                                        <div class="form-group row">
+                                            <label for="tahun"
+                                                class="col-md-4 col-form-label text-md-right">{{ __('Tahun') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input type="number" name="Tahun" class="form-control" required>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <input type="number" name="tahun" class="form-control" required>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group row">
-                                                <label for="PendaftaranAset"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('No. Pendaftaran Aset (KEWPA)') }}</label>
+                                        <div class="form-group row">
+                                            <label for="nopendaftaranasetkewpa"
+                                                class="col-md-4 col-form-label text-md-right">{{ __('No. Pendaftaran Aset (KEWPA)') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input id="PendaftaranAset" type="text"
-                                                        class="form-control @error('PendaftaranAset') is-invalid @enderror"
-                                                        name="PendaftaranAset" value="{{ old('PendaftaranAset') }}">
-                                                </div>
+                                            <div class="col-md-6">
+                                                <input id="nopendaftaranasetkewpa" type="text"
+                                                    class="form-control @error('nopendaftaranasetkewpa') is-invalid @enderror" name="nopendaftaranasetkewpa"
+                                                    value="{{ old('nopendaftaranasetkewpa') }}" >
                                             </div>
+                                        </div>
 
-                                            <div class="form-group row">
-                                                <label for="Status"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+                                        <div class="form-group row">
+                                        <label for="status"
+                                            class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <select class="form-control @error('Status') is-invalid @enderror"
-                                                        name="Status" value="{{ old('Status') }}">
-                                                        <option value="" disabled selected>Sila Pilih Status</option>
-                                                        <option value="Baik">Baik</option>
-                                                        <option value="Rosak">Rosak</option>
-                                                    </select>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control @error('status') is-invalid @enderror" name="status"
+                                                    value="{{ old('status') }}" >
+                                                    <option value="" disabled selected>Sila Pilih Status</option>
+                                                    <option value="Baik">Baik</option>
+                                                    <option value="Rosak">Rosak</option>
+                                                </select>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="Cadangan"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('Cadangan') }}</label>
+                                        </div>
+                                        <div class="form-group row">
+                                        <label for="cadangan"
+                                            class="col-md-4 col-form-label text-md-right">{{ __('Cadangan') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <select class="form-control @error('Cadangan') is-invalid @enderror"
-                                                        name="Cadangan" value="{{ old('Cadangan') }}">
-                                                        <option value="" disabled selected>Sila Pilih Cadangan
-                                                        </option>
-                                                        <option value="Guna">Guna</option>
-                                                        <option value="Lupus">Lupus</option>
-                                                    </select>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control @error('cadangan') is-invalid @enderror" name="cadangan"
+                                                    value="{{ old('cadangan') }}" >
+                                                    <option value="" disabled selected>Sila Pilih cadangan</option>
+                                                    <option value="Guna">Guna</option>
+                                                    <option value="Lupus">Lupus</option>
+                                                </select>
                                             </div>
+                                        </div>
+                                        <!-- i dont even know what im doing ffs -->
 
-                                            <div class="form-group row">
-                                                <label for="Catatan"
-                                                    class="col-md-4 col-form-label text-md-right">{{ __('Catatan') }}</label>
+                                        <div class="form-group row">
+                                            <label for="catatan"
+                                                class="col-md-4 col-form-label text-md-right">{{ __('Catatan') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input id="Catatan" type="text"
-                                                        class="form-control @error('Catatan') is-invalid @enderror"
-                                                        name="Catatan" value="{{ old('Catatan') }}">
+                                            <div class="col-md-6">
+                                                <input id="catatan" type="text"
+                                                    class="form-control @error('catatan') is-invalid @enderror" name="catatan"
+                                                    value="{{ old('catatan') }}" >
 
                                                     <!-- <input type="radio" style="width:auto" class="btn btn-primary">
-                                                {{ __('GUNA') }}</button>
-                                                <input type="radio" style="width:auto" class="btn btn-primary">
-                                                {{ __('LUPUS') }}</button> -->
+                                                    {{ __('GUNA') }}</button>
+                                                    <input type="radio" style="width:auto" class="btn btn-primary">
+                                                    {{ __('LUPUS') }}</button> -->
 
 
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group row mb-0">
-                                                <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" style="width:auto" class="btn btn-primary">
-                                                        {{ __('Tambah') }}</button>
-                                                    <button type="reset" style="width:auto" class="btn btn-primary">
-                                                        {{ __('Set Semula') }}</button>
-                                                </div>
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 offset-md-4">
+                                                <button type="submit" style="width:auto" class="btn btn-primary">
+                                                    {{ __('Tambah') }}</button>
+                                                <button type="reset" style="width:auto" class="btn btn-primary">
+                                                    {{ __('Set Semula') }}</button>
                                             </div>
+                                        </div>
 
 
 

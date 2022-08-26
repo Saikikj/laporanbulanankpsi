@@ -49,7 +49,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -66,7 +66,7 @@ table.table td .add {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -76,7 +76,7 @@ table.table td .add {
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
-/* 
+/*
 
 .table-title h2 {
     margin: 6px 0 0;
@@ -96,7 +96,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 
  */
 
@@ -222,7 +222,7 @@ toggle between hiding and showing the dropdown content */
 function myFunction2() {
     document.getElementById("myDropdown2").classList.toggle("show");
   }
-  
+
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn2')) {
@@ -249,7 +249,7 @@ function myFunction2() {
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
                 '<td><input type="text" class="form-control" name="bil" id="bil"></td>' + //will fill from db count when add new RECORD PERALATAN
-                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' + 
+                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' +
                 '<td><input type="text" class="form-control" name="nosiri" id="nosiri"></td>' +
                 '<td><input type="text" class="form-control" name="issi" id="issi"></td>' +
                 '<td><input type="text" class="form-control" name="tarikhterima" id="tarikhterima"></td>' +
@@ -260,7 +260,7 @@ function myFunction2() {
                 '<td><input type="text" class="form-control" name="lokasisemasa" id="lokasisemasa"></td>' +
                 '<td>' + actions + '</td>' +
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -280,16 +280,16 @@ function myFunction2() {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -298,7 +298,7 @@ function myFunction2() {
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
         });
-        
+
     });
 </script>
 <script>//dropdown Menu
@@ -316,7 +316,7 @@ function myFunction2() {
                     txtValue = a[i].textContent || a[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     a[i].style.display = "";
-                    }            
+                    }
                 else {
                     a[i].style.display = "none";
                 }
@@ -338,12 +338,12 @@ function myFunction2() {
 
         $(function() {
         $("#peralatan_select").change(function() {
-            if ($("#laptop").is(":selected")) {
-            $("#laptop_form").show();
-            // $("#laptop_form").hide();
+            if ($("#printer").is(":selected")) {
+            $("#printer_form").show();
+            // $("#printer_form").hide();
             } else {
-            $("#laptop_form").hide();
-            // $("#laptop_form").show();
+            $("#printer_form").hide();
+            // $("#printer_form").show();
             }
         }).trigger('change');
         });
@@ -351,7 +351,7 @@ function myFunction2() {
 
 <!-- -----------------------------------------------------END OF CSS AND SCRIPT SECTIONS---------------------------------------------- -->
        <div class="container-fluid">
-        
+
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
@@ -370,45 +370,33 @@ function myFunction2() {
                                     <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                                 </div> -->
                             </div>
-                        </div>  
+                        </div>
 
 
                             <!-- INPUT -->
                         <div class="container-fluid">
                             <div class="row justify-content-center">
-<!-- -----------------------------------------------------TEST SHOW/HIDE--------------------------------------------------- -->
-                                                    
-    <br>
-
-    <select id="peralatan_select">
-    <option id="PC">Komputer Meja</option>
-    <!-- <option id="laptop">Komputer Riba</option> -->
-    <option id="printer">Pencetak</option>
-    <!-- <option id="vtc">VTC</option>
-    <option id="switchrouter">Switch Router</option>
-    <option id="ancillaries">Ancillaries</option>
-    <option id="comm">Comm</option> -->
-
-</select>
-<br><br>
 <!-- ---------------------------------------------END OF TEST SHOW/HIDE---------------------------------------------------- -->
                                 <!-- <div id="PC" style="display:none;"> -->
                             <div>&nbsp</div>
-                            <div id="PC_form" style="display:none;">
+<div id="PC_form" style="display:none;">
+    <form action="/p4/mkpl/pc" method="POST" id="userformcreate">
+        @csrf
+        <select name="peralatan_select" id="peralatan_select">
+        <option id="PC" value ="PC">Komputer Meja</option>
+        <option id="printer" value="printer">Pencetak</option>
+    </select>
                                     <div class="form-group row">
                                         <label for="unit"
                                             class="col-md-4 col-form-label text-md-right">{{ __('Unit') }}</label>
-                                        <div class="col-md-6">
-                                        
-                                    <select class="form-control @error('unit') is-invalid @enderror" name="unit"
-                                        value="{{ old('unit') }}" >
-                                        <option value="" disabled selected>Sila Pilih Unit</option>
-                                        <option value="mkpl">Markas Pangkalan Lumut</option>
-                                    </select>
+                                            <div class="col-md-6">
+                                                <input id="unit" type="text"
+                                                    class="form-control @error('unit') is-invalid @enderror" name="unit"
+                                                    value="{{ old('unit') }}" required>
+                                            </div>
                                     </div>
-                                    </div>
-                                
-                                
+
+
                                 <div class="form-group row">
                                     <label for="perjawatan"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Perjawatan') }}</label>
@@ -434,22 +422,11 @@ function myFunction2() {
                                 <div class="form-group row">
                                 <label for="pangkat"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Pangkat') }}</label>
-
                                     <div class="col-md-6">
-                                        <select class="form-control @error('pangkat') is-invalid @enderror" name="pangkat"
-                                            value="{{ old('pangkat') }}" >
-                                            <option value="" disabled selected>Sila Pilih Pangkat</option>
-                                            <option value="ltm">LT MUDA TLDM</option>
-                                            <option value="ltdya">LT DYA TLDM</option>
-                                            <option value="lt">LT TLDM</option>
-                                            <option value="ltkdr">LT KDR TLDM</option>
-                                            <option value="kdr">KDR TLDM</option>
-                                            <option value="kept">KEPT TLDM</option>
-                                            <option value="laksma">LAKSMA TLDM</option>
-                                            <option value="lk">LK/LKPL</option>
-                                            <option value="bm">BM</option>
-                                            <option value="bk">BK</option>
-                                        </select>
+                                        <input id="pangkat" type="text"
+                                            class="form-control @error('pangkat') is-invalid @enderror"
+                                            name="pangkat" value="{{ old('pangkat') }}"
+                                            placeholder="pangkat" required>
                                     </div>
                                 </div>
 
@@ -497,7 +474,7 @@ function myFunction2() {
                                             value="{{ old('bilmonitor') }}" placeholder="Bilangan Monitor" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="bilmouse"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Bilangan Mouse') }}</label>
@@ -518,11 +495,7 @@ function myFunction2() {
                                             class="form-control @error('bilkeyboard') is-invalid @enderror" name="bilkeyboard"
                                             value="{{ old('bilkeyboard') }}" placeholder="Bilangan Monitor" required>
                                     </div>
-                                </div>                          
-                            
-                            <form action="javascript:void(0)" method="POST" id="userformcreate">
-                                @csrf
-                                <div id="">
+                                </div>
                                     <div class="form-group row">
                                         <label for="nosiricpu"
                                             class="col-md-4 col-form-label text-md-right">{{ __('No Siri CPU') }}</label>
@@ -545,35 +518,35 @@ function myFunction2() {
                                             value="{{ old('nosirimonitor') }}" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
-                                    <label for="Jenama"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Jenama') }}</label>
+                                    <label for="jenama"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('jenama') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Jenama" type="text"
-                                            class="form-control @error('Jenama') is-invalid @enderror" name="Jenama"
-                                            value="{{ old('Jenama') }}" placeholder="Jenama Peralatan" required>
+                                        <input id="jenama" type="text"
+                                            class="form-control @error('jenama') is-invalid @enderror" name="jenama"
+                                            value="{{ old('jenama') }}" placeholder="jenama Peralatan" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Tahun"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Tahun') }}</label>
+                                    <label for="tahun"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('tahun') }}</label>
 
                                     <div class="col-md-6">
-                                        <input type="date" name="Tahun" class="form-control" required>
+                                        <input type="text" name="tahun" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                <label for="Status"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+                                <label for="status"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('status') }}</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control @error('Status') is-invalid @enderror" name="Status"
-                                            value="{{ old('Status') }}" >
-                                            <option value="" disabled selected>Sila Pilih Status</option>
+                                        <select class="form-control @error('status') is-invalid @enderror" name="status"
+                                            value="{{ old('status') }}" >
+                                            <option value="" disabled selected>Sila Pilih status</option>
                                             <option value="Baik">Baik</option>
                                             <option value="Rosak">Rosak</option>
                                         </select>
@@ -587,7 +560,7 @@ function myFunction2() {
                                     <div class="col-md-6">
                                         <select class="form-control @error('p4') is-invalid @enderror" name="p4"
                                             value="{{ old('p4') }}" >
-                                            <option value="" disabled selected>Sila Pilih Status</option>
+                                            <option value="" disabled selected>Sila Pilih status</option>
                                             <option value="ada">Ada</option>
                                             <option value="tiada">Tiada</option>
                                         </select>
@@ -650,7 +623,7 @@ function myFunction2() {
                                     <div class="col-md-6">
                                         <input id="msoffice" type="text"
                                             class="form-control @error('msoffice') is-invalid @enderror" name="msoffice"
-                                            value="{{ old('msoffice') }}" placeholder="Tahun MS Office" required>
+                                            value="{{ old('msoffice') }}" placeholder="tahun MS Office" required>
                                     </div>
                                 </div>
 
@@ -677,13 +650,13 @@ function myFunction2() {
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Catatan"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Catatan') }}</label>
+                                    <label for="catatan"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('catatan') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Catatan" type="text"
-                                            class="form-control @error('Catatan') is-invalid @enderror" name="Catatan"
-                                            value="{{ old('Catatan') }}" >
+                                        <input id="catatan" type="text"
+                                            class="form-control @error('catatan') is-invalid @enderror" name="catatan"
+                                            value="{{ old('catatan') }}" >
 
                                     </div>
                                 </div>
@@ -696,21 +669,25 @@ function myFunction2() {
                                             {{ __('Set Semula') }}</button>
                                     </div>
                                 </div>
-                                </div>
-</div> 
+
+                            </form>
+</div>
 <!-- ------------------------------------------------ Printer ----------------------------------------- -->
 <div id="printer_form" style="display:none;">
+    <form action="/p4/mkpl/printer" method="POST" id="userformcreate">
+        @csrf
+        <select name="peralatan_select" id="peralatan_select">
+        <option id="PC" value ="PC">Komputer Meja</option>
+        <option id="printer" value="printer">Pencetak</option>
+    </select>
                                 <div class="form-group row">
                                         <label for="unit"
                                             class="col-md-4 col-form-label text-md-right">{{ __('Unit') }}</label>
                                         <div class="col-md-6">
-                                        
-                                    <select class="form-control @error('unit') is-invalid @enderror" name="unit"
-                                        value="{{ old('unit') }}" >
-                                        <option value="" disabled selected>Sila Pilih Unit</option>
-                                        <option value="mkpl">Markas Pangkalan Lumut</option>
-                                    </select>
-                                    </div>
+                                            <input id="unit" type="text"
+                                                class="form-control @error('unit') is-invalid @enderror" name="unit"
+                                                value="{{ old('unit') }}" required>
+                                        </div>
                                 </div>
 
 
@@ -741,18 +718,10 @@ function myFunction2() {
                                     class="col-md-4 col-form-label text-md-right">{{ __('Pangkat') }}</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control @error('pangkat') is-invalid @enderror" name="pangkat"
-                                            value="{{ old('pangkat') }}" >
-                                            <option value="" disabled selected>Sila Pilih Pangkat</option>
-                                            <option value="ltm">LT MUDA TLDM</option>
-                                            <option value="ltdya">LT DYA TLDM</option>
-                                            <option value="lt">LT TLDM</option>
-                                            <option value="ltkdr">LT KDR TLDM</option>
-                                            <option value="kdr">KDR TLDM</option>
-                                            <option value="kept">KEPT TLDM</option>
-                                            <option value="lk">LK/LKPL</option>
-                                            <option value="bm">BM</option>
-                                        </select>
+                                        <input id="pangkat" type="text"
+                                            class="form-control @error('pangkat') is-invalid @enderror"
+                                            name="pangkat" value="{{ old('pangkat') }}"
+                                            placeholder="pangkat" required>
                                     </div>
                                 </div>
 
@@ -802,13 +771,13 @@ function myFunction2() {
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Jenama"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Jenama') }}</label>
+                                    <label for="jenama"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('jenama') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Jenama" type="text"
-                                            class="form-control @error('Jenama') is-invalid @enderror" name="Jenama"
-                                            value="{{ old('Jenama') }}" placeholder="Jenama Peralatan" required>
+                                        <input id="jenama" type="text"
+                                            class="form-control @error('jenama') is-invalid @enderror" name="jenama"
+                                            value="{{ old('jenama') }}" placeholder="jenama Peralatan" required>
                                     </div>
                                 </div>
 
@@ -827,22 +796,22 @@ function myFunction2() {
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Tahun"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Tahun') }}</label>
+                                    <label for="tahun"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('tahun') }}</label>
 
                                     <div class="col-md-6">
-                                        <input type="date" name="Tahun" class="form-control" required>
+                                        <input type="text" name="tahun" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                <label for="Status"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+                                <label for="status"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('status') }}</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control @error('Status') is-invalid @enderror" name="Status"
-                                            value="{{ old('Status') }}" >
-                                            <option value="" disabled selected>Sila Pilih Status</option>
+                                        <select class="form-control @error('status') is-invalid @enderror" name="status"
+                                            value="{{ old('status') }}" >
+                                            <option value="" disabled selected>Sila Pilih status</option>
                                             <option value="Baik">Baik</option>
                                             <option value="Rosak">Rosak</option>
                                         </select>
@@ -861,13 +830,13 @@ function myFunction2() {
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Catatan"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Catatan') }}</label>
+                                    <label for="catatan"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('catatan') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Catatan" type="text"
-                                            class="form-control @error('Catatan') is-invalid @enderror" name="Catatan"
-                                            value="{{ old('Catatan') }}" >
+                                        <input id="catatan" type="text"
+                                            class="form-control @error('catatan') is-invalid @enderror" name="catatan"
+                                            value="{{ old('catatan') }}" >
 
                                     </div>
                                 </div>
@@ -880,11 +849,12 @@ function myFunction2() {
                                             {{ __('Set Semula') }}</button>
                                     </div>
                                 </div>
+    </form>
 </div>
 </div>
                             </div>
                         </div>
-                
+
                         <a href="/p4/mkpl/"><button type="button" class="btn btn-default">Back</button>
                         <a href="/p4/index"><button type="button" class="btn btn-default">Home</button></a>
                     </div>
@@ -897,5 +867,5 @@ function myFunction2() {
 
 
 
-                       
+
     @endsection

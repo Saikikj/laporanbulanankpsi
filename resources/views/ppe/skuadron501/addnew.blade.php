@@ -49,7 +49,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -66,7 +66,7 @@ table.table td .add {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -76,7 +76,7 @@ table.table td .add {
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
-/* 
+/*
 
 .table-title h2 {
     margin: 6px 0 0;
@@ -96,7 +96,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 
  */
 
@@ -222,7 +222,7 @@ toggle between hiding and showing the dropdown content */
 function myFunction2() {
     document.getElementById("myDropdown2").classList.toggle("show");
   }
-  
+
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn2')) {
@@ -249,7 +249,7 @@ function myFunction2() {
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
                 '<td><input type="text" class="form-control" name="bil" id="bil"></td>' + //will fill from db count when add new RECORD PERALATAN
-                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' + 
+                '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' +
                 '<td><input type="text" class="form-control" name="nosiri" id="nosiri"></td>' +
                 '<td><input type="text" class="form-control" name="issi" id="issi"></td>' +
                 '<td><input type="text" class="form-control" name="tarikhterima" id="tarikhterima"></td>' +
@@ -260,7 +260,7 @@ function myFunction2() {
                 '<td><input type="text" class="form-control" name="lokasisemasa" id="lokasisemasa"></td>' +
                 '<td>' + actions + '</td>' +
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -280,16 +280,16 @@ function myFunction2() {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -298,7 +298,7 @@ function myFunction2() {
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
         });
-        
+
     });
 </script>
 <script>//dropdown Menu
@@ -316,7 +316,7 @@ function myFunction2() {
                     txtValue = a[i].textContent || a[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     a[i].style.display = "";
-                    }            
+                    }
                 else {
                     a[i].style.display = "none";
                 }
@@ -344,13 +344,13 @@ function myFunction2() {
                                     <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                                 </div> -->
                             </div>
-                        </div>  
+                        </div>
                             <!-- INPUT -->
+<form action="/ppe/skuadron501" method="POST" id="userformcreate">
+@csrf
                         <div class="container-fluid">
                             <div class="row justify-content-center">
 
-                            <form action="javascript:void(0)" method="POST" id="userformcreate">
-                                @csrf
                                 <div id="">
                                     <div class="form-group row">
                                         <label for="peralatan"
@@ -363,7 +363,7 @@ function myFunction2() {
                                                 placeholder="" required>
                                         </div>
                                     </div>
-                                
+
                                 <div class="form-group row">
                                     <label for="model"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Model') }}</label>
@@ -418,7 +418,7 @@ function myFunction2() {
                                             value="{{ old('statuskeupayaan') }}" required>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="form-group row">
                                     <label for="JMS"
@@ -444,7 +444,7 @@ function myFunction2() {
                                             {{ __('GUNA') }}</button>
                                             <input type="radio" style="width:auto" class="btn btn-primary">
                                             {{ __('LUPUS') }}</button> -->
-                                            
+
 
                                     </div>
                                 </div>
@@ -460,7 +460,8 @@ function myFunction2() {
                                 </div>
                             </div>
                         </div>
-                
+</form>
+
                         <a href="/ppe/skuadron501"><button type="button" class="btn btn-default">Back</button>
                         <a href="/ppe/index"><button type="button" class="btn btn-default">Home</button></a>
                     </div>
@@ -468,5 +469,5 @@ function myFunction2() {
             </div>
         </div>
        </div>
-                       
+
     @endsection

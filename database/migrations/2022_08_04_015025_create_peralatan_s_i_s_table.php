@@ -18,10 +18,11 @@ class CreatePeralatanSISTable extends Migration
             $table->string('markas');
             $table->string('unit');
             $table->string('penempatan');
-            $table->string('jenis');
+            $table->string('jenisperalatan');
+            $table->string('jenama');
             $table->string('cpu');
             $table->string('monitor');
-            $table->integer('tahun');
+            $table->string('tahun');
             $table->string('nopendaftaranasetkewpa');
             $table->string('status');
             $table->string('cadangan');

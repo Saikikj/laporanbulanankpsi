@@ -82,7 +82,7 @@ table.table td a.add i {
     margin-right: -1px;
     position: relative;
     top: 3px;
-}    
+}
 table.table .form-control {
     height: 32px;
     line-height: 32px;
@@ -99,7 +99,7 @@ table.table td .add {
     width: 700px;
     margin: 30px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -109,7 +109,7 @@ table.table td .add {
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
 }
-/* 
+/*
 
 .table-title h2 {
     margin: 6px 0 0;
@@ -129,7 +129,7 @@ table.table td a {
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
-}    
+}
 
  */
 
@@ -215,7 +215,7 @@ table.table td a {
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
                 // '<td><input type="text" class="form-control" name="bil" id="bil"></td>' + //will fill from db count when add new RECORD PERALATAN
-                // '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' + 
+                // '<td style="text-align: left"><input type="text" class="form-control" name="model" id="model"></td>' +
                 '<td><input type="number" class="form-control" name="Tahun" id="Tahun"></td>' +
                 '<td><input type="number" class="form-control" name="PejabatPTL" id="PejabatPTL"></td>' +
                 '<td><input type="number" class="form-control" name="PejabatTPTL" id="PejabatTPTL"></td>' +
@@ -233,9 +233,9 @@ table.table td a {
                 '<td><input type="number" class="form-control" name="KPSI" id="KPSI"></td>' +
                 '<td><input type="number" class="form-control" name="BIJ" id="BIJ"></td>' +
                 '<td>' + actions + '</td>' +
-                
+
             '</tr>';
-            $("table").append(row);		
+            $("table").append(row);
             $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
             $('[data-toggle="tooltip"]').tooltip();
         });
@@ -255,16 +255,16 @@ table.table td a {
             if(!empty){
                 input.each(function(){
                     $(this).parent("td").html($(this).val());
-                });			
+                });
                 $(this).parents("tr").find(".add, .edit").toggle();
                 $(".add-new").removeAttr("disabled");
-            }		
+            }
         });
         // Edit row on edit button click
-        $(document).on("click", ".edit", function(){		
+        $(document).on("click", ".edit", function(){
             $(this).parents("tr").find("td:not(:last-child)").each(function(){
                 $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-            });		
+            });
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
         });
@@ -273,7 +273,7 @@ table.table td a {
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
         });
-        
+
     });
 </script>
        <div class="container-fluid">
@@ -293,17 +293,17 @@ table.table td a {
                                 <div class="col-sm-8"><h3>Peralatan P4 Markas Simpanan</h3></div>
                                 <!-- <h5>Sila Pilih Unit Anda</h5> -->
                                 <!-- <div class="col-sm-4">
-                                    
+
                                     <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                                 </div> -->
                             </div>
-                        </div>  
+                        </div>
                         <button class="collapsible" style="text-align:center">Komputer Meja</button>
 <div class="content">
                     <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
+
                                 <th rowspan="1">Bahagian</th>
                                 <th rowspan="1">Perjawatan</th>
                                 <th rowspan="1">No Siri CPU</th>
@@ -322,34 +322,33 @@ table.table td a {
                                 <th rowspan="1">Catatan</th>
                                 <th rowspan="1">Tindakan</th>
 
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($datapc as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->cpu }}</td>
+                                <td>{{ $data->monitor }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->terminalnc2 }}</td>
+                                <td>{{ $data->namadaftar }}</td>
+                                <td>{{ $data->processor }}</td>
+                                <td>{{ $data->ram }}</td>
+                                <td>{{ $data->operatingsystem }}</td>
+                                <td>{{ $data->msoffice }}</td>
+                                <td>{{ $data->antivirus}}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mksimpanan/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/edit/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                             </tbody>
                         </thead>
                     </table>
@@ -359,8 +358,8 @@ table.table td a {
                     <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
-                                <th rowspan="1">Markas</th>
+
+
                                 <th rowspan="1">Unit</th>
                                 <th rowspan="1">Perjawatan</th>
                                 <th rowspan="1">No. Tentera</th>
@@ -383,37 +382,35 @@ table.table td a {
 
 
 
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($datalaptop as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->namadaftar }}</td>
+                                <td>{{ $data->processor}}</td>
+                                <td>{{ $data->ram }}</td>
+                                <td>{{ $data->operatingsystem}}</td>
+                                <td>{{ $data->msoffice }}</td>
+                                <td>{{ $data->antivirus}}</td>
+                                <td>{{ $data->rujukankewpa}}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mksimpanan/deleteLaptop/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/editLaptop/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                             </tbody>
                     </table>
 </div>
@@ -422,8 +419,8 @@ table.table td a {
                         <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
-                                <th rowspan="1">Markas</th>
+
+
                                 <th rowspan="1">Unit</th>
                                 <th rowspan="1">Perjawatan</th>
                                 <th rowspan="1">No Tentera</th>
@@ -442,33 +439,31 @@ table.table td a {
 
 
 
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($dataprinter as $data)
+                            <tr>
+
+                                <td>{{ $data->unit }}</td>
+                                <td>{{ $data->perjawatan }}</td>
+                                <td>{{ $data->notentera }}</td>
+                                <td>{{ $data->pangkat }}</td>
+                                <td>{{ $data->tred }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->jenama }}</td>
+                                <td>{{ $data->toner }}</td>
+                                <td>{{ $data->tahun}}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->rujukankewpa }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mksimpanan/deletePrinter/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/editPrinter/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                             </tbody>
                     </table>
 </div>
@@ -477,8 +472,8 @@ table.table td a {
                         <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
-                                <th rowspan="1">Markas</th>
+
+
                                 <th rowspan="1">Model</th>
                                 <th rowspan="1">No Siri CODEC</th>
                                 <th rowspan="1">No Siri Mikrofon</th>
@@ -488,27 +483,24 @@ table.table td a {
                                 <th rowspan="1">Terminal NC2 <br>(Ada/tiada)</th>
                                 <th rowspan="1">Catatan</th>
                                 <th rowspan="1">Tindakan</th>
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($datavtc as $data)
+                            <tr>
+
+                                <td>{{ $data->model }}</td>
+                                <td>{{ $data->nosiricodec }}</td>
+                                <td>{{ $data->nosirimikrofon }}</td>
+                                <td>{{ $data->nosiricamera }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->terminalnc2 }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mksimpanan/deleteVtc/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/editVtc/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
                             </tbody>
                     </table>
 </div>
@@ -517,8 +509,8 @@ table.table td a {
 <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
-                                <th rowspan="1">Markas</th>
+
+
                                 <th rowspan="1">Peralatan</th>
                                 <th rowspan="1">No Siri</th>
                                 <th rowspan="1">Tahun</th>
@@ -526,25 +518,23 @@ table.table td a {
                                 <th rowspan="1">Status <br> (Baik/Rosak)</th>
                                 <th rowspan="1">Catatan</th>
                                 <th rowspan="1">Tindakan</th>
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($dataswitchrouter as $data)
+                            <tr>
+
+                                <td>{{ $data->peralatan }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mksimpanan/deleteSwitchrouter/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/editSwitchrouter/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                             </tbody>
                     </table>
 </div>
@@ -554,8 +544,7 @@ table.table td a {
 <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
-                                <th rowspan="1">Markas</th>
+
                                 <th rowspan="1">Peralatan</th>
                                 <th rowspan="1">No Siri</th>
                                 <th rowspan="1">Tahun</th>
@@ -563,25 +552,22 @@ table.table td a {
                                 <th rowspan="1">Status <br> (Baik/Rosak)</th>
                                 <th rowspan="1">Catatan</th>
                                 <th rowspan="1">Tindakan</th>
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($dataancillaries as $data)
+                            <tr>
+                                <td>{{ $data->peralatan }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->catatan }}</td>
+                                <td>
+                                    <a href="/p4/mksimpanan/deleteAncillaries/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/editAncillaries/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                             </tbody>
                     </table>
 </div>
@@ -591,46 +577,45 @@ table.table td a {
 <table class="table table-bordered">
                             <tbody style="text-align: center">
                             <tr>
-                                <th rowspan="1">Siri</th>
-                                <th rowspan="1">Markas</th>
+
+
                                 <th rowspan="1">Peralatan</th>
-                                <th rowspan="1">Jenis Peralatan</th>
+                                <th rowspan="1">Jenis Telephone</th>
                                 <th rowspan="1">No Siri</th>
                                 <th rowspan="1">Tahun</th>
                                 <th rowspan="1">Lokasi</th>
                                 <th rowspan="1">Status <br> (Baik/Rosak)</th>
                                 <th rowspan="1">Catatan</th>
                                 <th rowspan="1">Tindakan</th>
-                            </tr>                           
-                                <tr>
-                                    <td>.</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>...</td>
-                                    <td>
-                                        
-                                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                        {{-- <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> --}}
-                                    </td>
-                                </tr>
-                                
+                            </tr>
+                            @foreach ($datacomm as $data)
+                            <tr>
+
+                                <td>{{ $data->peralatan }}</td>
+                                <td>{{ $data->jenistelephone }}</td>
+                                <td>{{ $data->nosiri }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->lokasi }}</td>
+                                <td>{{ $data->status }}</td>
+                                <td>{{ $data->catatan }}</td>
+
+                                <td>
+                                    <a href="/p4/mksimpanan/deleteComm/{{ $data->id }}" class="btn btn-danger">Delete</a>
+                                    <a href="/p4/mksimpanan/editComm/{{ $data->id }}" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                             </tbody>
                     </table>
 </div>
-                        
+
                         <br>
                         <a href="/p4/index"><button type="button" class="btn btn-default">Back</button>
                         <a href="/p4/index"><button type="button" class="btn btn-default">Home</button>
                         <a href="/p4/mksimpanan/addnew"><button type="button" class="btn btn-default" style="float:right;">Tambah Peralatan</button>
-                        
-                        
+
+
 
                         </a>
                     </div>
@@ -650,9 +635,9 @@ for (i = 0; i < coll.length; i++) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
-    } 
+    }
   });
 }
 </script>
-                       
+
     @endsection
